@@ -132,11 +132,9 @@ st.markdown("""
     /* 1. Globale Schriften & Hintergrund */
     html, body, [class*="css"] {
         font-family: 'DM Sans', sans-serif;
-        background-color: #fdfef9;
-        color: #1a1a1a;
     }
 
-    /* 2. Hauptbereich weiss */
+    /* 2. Hauptbereich */
     [data-testid="stAppViewContainer"] {
         background-color: #fdfef9;
         border: 20px solid #023425;
@@ -152,45 +150,64 @@ st.markdown("""
         border-right: none;
     }
 
-    section[data-testid="stSidebar"] * {
+    /* Alle Texte in Sidebar weiss */
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] span,
+    section[data-testid="stSidebar"] label,
+    section[data-testid="stSidebar"] div,
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3,
+    section[data-testid="stSidebar"] small,
+    section[data-testid="stSidebar"] .stMarkdown {
         color: #fdfef9 !important;
     }
 
-    section[data-testid="stSidebar"] .stTextInput input {
+    /* Input Felder in Sidebar */
+    section[data-testid="stSidebar"] input {
         background-color: #416852 !important;
         border: 1px solid #8a9a93 !important;
         color: #fdfef9 !important;
         border-radius: 4px;
     }
 
-    section[data-testid="stSidebar"] .stTextInput input::placeholder {
+    section[data-testid="stSidebar"] input::placeholder {
         color: #8a9a93 !important;
     }
 
-    section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] {
+    /* Selectbox in Sidebar */
+    section[data-testid="stSidebar"] [data-baseweb="select"] > div {
         background-color: #416852 !important;
         border: 1px solid #8a9a93 !important;
-        border-radius: 4px;
-    }
-
-    section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] * {
         color: #fdfef9 !important;
     }
 
-    section[data-testid="stSidebar"] hr {
-        border-color: #416852 !important;
+    /* Logout Button in Sidebar */
+    section[data-testid="stSidebar"] div.stButton > button {
+        background-color: transparent !important;
+        border: 1px solid #8a9a93 !important;
+        color: #fdfef9 !important;
+        border-radius: 2px !important;
     }
 
-    /* 4. Radio Buttons in Sidebar */
-    section[data-testid="stSidebar"] div[role="radiogroup"] label {
+    section[data-testid="stSidebar"] div.stButton > button:hover {
+        background-color: #416852 !important;
+    }
+
+    /* Radio Buttons in Sidebar */
+    section[data-testid="stSidebar"] [data-testid="stRadio"] label {
         color: #fdfef9 !important;
     }
 
-    section[data-testid="stSidebar"] div[role="radiogroup"] div[data-testid="stMarkdownContainer"] p {
-        color: #fdfef9 !important;
+    /* 4. Ueberschriften im Hauptbereich */
+    h1, h2, h3 {
+        font-family: 'Cormorant Garamond', serif !important;
+        font-weight: 500 !important;
+        color: #023425 !important;
+        letter-spacing: 0.02em !important;
     }
 
-    /* 5. Alle Primary Buttons */
+    /* 5. Primary Buttons im Hauptbereich */
     div.stButton > button[kind="primary"] {
         background-color: #023425 !important;
         border: 1px solid #023425 !important;
@@ -198,9 +215,6 @@ st.markdown("""
         border-radius: 2px !important;
         font-family: 'DM Sans', sans-serif !important;
         font-weight: 500 !important;
-        letter-spacing: 0.05em !important;
-        padding: 0.5rem 1.5rem !important;
-        transition: background-color 0.2s ease !important;
     }
 
     div.stButton > button[kind="primary"]:hover {
@@ -214,95 +228,18 @@ st.markdown("""
         border: 1px solid #023425 !important;
         color: #023425 !important;
         border-radius: 2px !important;
-        font-family: 'DM Sans', sans-serif !important;
     }
 
-    div.stButton > button[kind="secondary"]:hover {
-        background-color: #dfe1d6 !important;
-    }
-
-    /* 7. Ueberschriften */
-    h1, h2, h3 {
-        font-family: 'Cormorant Garamond', serif !important;
-        font-weight: 500 !important;
-        color: #023425 !important;
-        letter-spacing: 0.02em !important;
-    }
-
-    h1 { font-size: 2.8rem !important; }
-    h2 { font-size: 2rem !important; }
-    h3 { font-size: 1.5rem !important; }
-
-    /* 8. Container / Cards */
-    div[data-testid="stVerticalBlockBorderWrapper"] {
-        border: 1px solid #dfe1d6 !important;
-        border-radius: 4px !important;
-        background-color: #ffffff !important;
-    }
-
-    /* 9. Tabs */
-    div[data-baseweb="tab-list"] {
-        border-bottom: 2px solid #dfe1d6 !important;
-        background-color: transparent !important;
-    }
-
-    div[data-baseweb="tab"] {
-        font-family: 'DM Sans', sans-serif !important;
-        color: #8a9a93 !important;
-    }
-
-    div[data-baseweb="tab"][aria-selected="true"] {
-        color: #023425 !important;
-        border-bottom: 2px solid #023425 !important;
-    }
-
-    /* 10. Input Felder */
-    div.stTextInput input, div.stNumberInput input, div.stTextArea textarea {
-        border: 1px solid #dfe1d6 !important;
-        border-radius: 2px !important;
-        background-color: #ffffff !important;
-        font-family: 'DM Sans', sans-serif !important;
-    }
-
-    div.stTextInput input:focus, div.stNumberInput input:focus, div.stTextArea textarea:focus {
-        border-color: #023425 !important;
-        box-shadow: 0 0 0 1px #023425 !important;
-    }
-
-    /* 11. Selectbox */
-    div[data-baseweb="select"] {
-        border-radius: 2px !important;
-    }
-
-    /* 12. Metriken */
-    div[data-testid="stMetric"] {
-        background-color: #ffffff !important;
-        border: 1px solid #dfe1d6 !important;
-        border-radius: 4px !important;
-        padding: 1rem !important;
-    }
-
+    /* 7. Metriken */
     div[data-testid="stMetricValue"] {
         color: #023425 !important;
         font-family: 'Cormorant Garamond', serif !important;
         font-size: 2rem !important;
     }
 
-    /* 13. Info / Warning / Success Boxen */
-    div[data-testid="stAlert"] {
-        border-radius: 2px !important;
-        border-left: 3px solid #023425 !important;
-    }
-
-    /* 14. Dataframe */
-    div[data-testid="stDataFrame"] {
-        border: 1px solid #dfe1d6 !important;
-        border-radius: 4px !important;
-    }
-
-    /* 15. Sidebar Logo Bereich */
-    [data-testid="stSidebarUserContent"] {
-        padding-top: 1rem !important;
+    /* 8. Trennlinien in Sidebar */
+    section[data-testid="stSidebar"] hr {
+        border-color: #416852 !important;
     }
 
     </style>
