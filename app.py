@@ -246,7 +246,8 @@ st.markdown("""
     border: 1px solid #fdfef9;
     border-radius: 50%;
     padding: 3px;
-    max-width: 90px !important;
+    max-width: 60px !important;
+    width: 60px !important;
 }        
     </style>
 """, unsafe_allow_html=True)
@@ -451,7 +452,6 @@ def add_exact_to_batch():
             "notes": f"{notes} | Country: {country} | Factor: {co2_factor} kg/kWh",
             "co2": co2
         })
-        st.session_state['e1_batch_list'].append({"type": "Exact", "source": source, "liters": kwh, "notes": notes, "co2": co2})
         
         # Eingabefelder zurücksetzen
         st.session_state.widget_kwh = 0.0
@@ -1768,13 +1768,13 @@ with st.sidebar:
             display: flex;
             justify-content: flex-start !important;
             margin-top: -5px !important;
-            margin-left: -65px !important;
+            margin-left: 0px !important;
             margin-bottom: 10px !important;
         }
         </style>
     """, unsafe_allow_html=True)
 
-    st.image("logo2.svg", width=90)
+    st.image("logo2.svg", width=60)
     st.caption(f"{st.session_state['user'].email}")
     if st.button("Logout"):
         logout()
