@@ -242,6 +242,11 @@ st.markdown("""
         border-color: #416852 !important;
     }
 
+    section[data-testid="stSidebar"] [data-testid="stImage"] img {
+    border: 2px solid #fdfef9;
+    border-radius: 50%;
+    padding: 5px;
+    }        
     </style>
 """, unsafe_allow_html=True)
 
@@ -1645,8 +1650,10 @@ if 'user' not in st.session_state:
 # also nach der Zeile: st.stop()
 # und VOR der Sidebar (# --- SIDEBAR ---)
 
+# --- SUBSCRIPTION CHECK ---
+
 def check_subscription(user_id: str) -> dict | None:
-    """Gibt die Subscription zurueck wenn aktiv, sonst None."""
+    """Gibt die Subscription zurück wenn aktiv, sonst None."""
     try:
         from datetime import datetime, timezone
         response = supabase.table("subscriptions").select("*").eq("user_id", user_id).execute()
@@ -1668,7 +1675,7 @@ def check_subscription(user_id: str) -> dict | None:
         st.error(f"Subscription check failed: {e}")
         return None
 
-# Subscription pruefen
+# Subscription prüfen
 user_id = st.session_state['user'].id
 subscription = check_subscription(user_id)
 
@@ -1682,9 +1689,9 @@ if subscription is None:
     with col1:
         st.markdown("### Ihr Zugang ist noch nicht aktiv.")
         st.markdown("""
-        Vielen Dank fuer Ihre Registrierung!
+        Vielen Dank für Ihre Registrierung!
         
-        Um die App nutzen zu koennen, benoetigen Sie eine aktive Lizenz.
+        Um die App nutzen zu können, benötigen Sie eine aktive Lizenz.
         Bitte kontaktieren Sie uns um Ihren Zugang freizuschalten.
         """)
 
@@ -1698,7 +1705,7 @@ if subscription is None:
             with c2:
                 st.markdown("**ESG Certified**")
                 st.markdown("1.799 EUR / Jahr")
-                st.caption("+ Beratung & Bestaetigung")
+                st.caption("+ Beratung & Bestätigung")
             with c3:
                 st.markdown("**ESG Partner**")
                 st.markdown("3.299 EUR / Jahr")
@@ -1706,7 +1713,7 @@ if subscription is None:
 
         st.markdown("---")
         st.markdown("**Kontakt aufnehmen:**")
-        st.markdown("info@readyforesg.com")
+        st.markdown("[info@readyforesg.com](mailto:info@readyforesg.com)")
         st.markdown("[Zur Website](https://readyforesg.com)")
 
     with col2:
@@ -1715,11 +1722,11 @@ if subscription is None:
             with st.form("request_access_form"):
                 req_name = st.text_input("Ihr Name")
                 req_company = st.text_input("Unternehmen")
-                req_plan = st.selectbox("Gewuenschtes Paket", [
+                req_plan = st.selectbox("Gewünschtes Paket", [
                     "ESG Ready (1.099 EUR)",
                     "ESG Certified (1.799 EUR)",
                     "ESG Partner (3.299 EUR)",
-                    "Erstgespraech (kostenlos)"
+                    "Erstgespräch (kostenlos)"
                 ])
                 req_message = st.text_area("Nachricht (optional)", height=100)
                 submitted = st.form_submit_button("Anfrage senden", type="primary", use_container_width=True)
@@ -1784,6 +1791,11 @@ with st.sidebar:
         user_meta = st.session_state['user'].user_metadata or {}
         default_company = user_meta.get('company_name', '')
         st.session_state['current_company_id'] = default_company
+
+        if 'current_company_id' not in st.session_state:
+            user_meta = st.session_state['user'].user_metadata or {}
+            default_company = user_meta.get('company_name', '')
+            st.session_state['current_company_id'] = default_company
 
         company_name = st.text_input("Company Name / ID", placeholder="Enter Name...", key="current_company_id")
 
