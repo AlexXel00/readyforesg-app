@@ -127,72 +127,184 @@ st.set_page_config(
 # --- CUSTOM CSS: DER RAHMEN & STYLE & BUTTONS ---
 st.markdown("""
     <style>
-    /* 1. Der Rahmen um den gesamten Screen */
-    [data-testid="stAppViewContainer"] {
-        border: 25px solid #023425;  /* Deep Forest Green */
-        padding-left: 20px;
-        padding-right: 20px;
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+    /* 1. Globale Schriften & Hintergrund */
+    html, body, [class*="css"] {
+        font-family: 'DM Sans', sans-serif;
+        background-color: #fdfef9;
+        color: #1a1a1a;
     }
 
-    /* 2. Header-Anpassung */
+    /* 2. Hauptbereich weiss */
+    [data-testid="stAppViewContainer"] {
+        background-color: #fdfef9;
+        border: 20px solid #023425;
+    }
+
     [data-testid="stHeader"] {
         background-color: transparent;
-        margin-top: 20px;
     }
 
-    /* 3. Sidebar-Linie */
+    /* 3. Sidebar dunkelgruen */
     section[data-testid="stSidebar"] {
-        border-right: 1px solid #D6DED9;
-    }
-    
-    /* 4. Highlight für die Company Input Box */
-    div[data-testid="stSidebar"] .stTextInput input {
-        border: 2px solid #023425;
-    }
-    
-    /* 5. Custom Klasse für den grünen Haken */
-    .brand-check {
-        color: #023425;
-        font-weight: bold;
-        font-size: 1.2em;
+        background-color: #023425 !important;
+        border-right: none;
     }
 
-    /* 6. Alle "Primary" Buttons (bisher rot) zu #416852 ändern */
+    section[data-testid="stSidebar"] * {
+        color: #fdfef9 !important;
+    }
+
+    section[data-testid="stSidebar"] .stTextInput input {
+        background-color: #416852 !important;
+        border: 1px solid #8a9a93 !important;
+        color: #fdfef9 !important;
+        border-radius: 4px;
+    }
+
+    section[data-testid="stSidebar"] .stTextInput input::placeholder {
+        color: #8a9a93 !important;
+    }
+
+    section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] {
+        background-color: #416852 !important;
+        border: 1px solid #8a9a93 !important;
+        border-radius: 4px;
+    }
+
+    section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] * {
+        color: #fdfef9 !important;
+    }
+
+    section[data-testid="stSidebar"] hr {
+        border-color: #416852 !important;
+    }
+
+    /* 4. Radio Buttons in Sidebar */
+    section[data-testid="stSidebar"] div[role="radiogroup"] label {
+        color: #fdfef9 !important;
+    }
+
+    section[data-testid="stSidebar"] div[role="radiogroup"] div[data-testid="stMarkdownContainer"] p {
+        color: #fdfef9 !important;
+    }
+
+    /* 5. Alle Primary Buttons */
     div.stButton > button[kind="primary"] {
-        background-color: #416852 !important;
-        border: 1px solid #416852 !important;
-        color: white !important;
+        background-color: #023425 !important;
+        border: 1px solid #023425 !important;
+        color: #fdfef9 !important;
+        border-radius: 2px !important;
+        font-family: 'DM Sans', sans-serif !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.05em !important;
+        padding: 0.5rem 1.5rem !important;
+        transition: background-color 0.2s ease !important;
     }
-    
+
     div.stButton > button[kind="primary"]:hover {
-        background-color: #2e4a3b !important; 
-        border: 1px solid #2e4a3b !important;
-        color: white !important;
-    }
-    
-    div.stButton > button[kind="primary"]:focus:not(:active) {
-        border-color: #416852 !important;
-        color: white !important;
-    }
-
-    /* 7. Radio Buttons (Main Menu) in Dunkelgrün */
-    div[role="radiogroup"] > label > div:first-child {
         background-color: #416852 !important;
         border-color: #416852 !important;
     }
-    
-    div[role="radiogroup"] label[data-baseweb="radio"] {
-        accent-color: #416852 !important;
+
+    /* 6. Secondary Buttons */
+    div.stButton > button[kind="secondary"] {
+        background-color: transparent !important;
+        border: 1px solid #023425 !important;
+        color: #023425 !important;
+        border-radius: 2px !important;
+        font-family: 'DM Sans', sans-serif !important;
     }
 
-    /* 8. Sidebar-Abstand nach oben entfernen (für das Logo) */
-    section[data-testid="stSidebar"] div.st-emotion-cache-16txtl3 {
-        padding-top: 0rem; 
+    div.stButton > button[kind="secondary"]:hover {
+        background-color: #dfe1d6 !important;
     }
+
+    /* 7. Ueberschriften */
+    h1, h2, h3 {
+        font-family: 'Cormorant Garamond', serif !important;
+        font-weight: 500 !important;
+        color: #023425 !important;
+        letter-spacing: 0.02em !important;
+    }
+
+    h1 { font-size: 2.8rem !important; }
+    h2 { font-size: 2rem !important; }
+    h3 { font-size: 1.5rem !important; }
+
+    /* 8. Container / Cards */
+    div[data-testid="stVerticalBlockBorderWrapper"] {
+        border: 1px solid #dfe1d6 !important;
+        border-radius: 4px !important;
+        background-color: #ffffff !important;
+    }
+
+    /* 9. Tabs */
+    div[data-baseweb="tab-list"] {
+        border-bottom: 2px solid #dfe1d6 !important;
+        background-color: transparent !important;
+    }
+
+    div[data-baseweb="tab"] {
+        font-family: 'DM Sans', sans-serif !important;
+        color: #8a9a93 !important;
+    }
+
+    div[data-baseweb="tab"][aria-selected="true"] {
+        color: #023425 !important;
+        border-bottom: 2px solid #023425 !important;
+    }
+
+    /* 10. Input Felder */
+    div.stTextInput input, div.stNumberInput input, div.stTextArea textarea {
+        border: 1px solid #dfe1d6 !important;
+        border-radius: 2px !important;
+        background-color: #ffffff !important;
+        font-family: 'DM Sans', sans-serif !important;
+    }
+
+    div.stTextInput input:focus, div.stNumberInput input:focus, div.stTextArea textarea:focus {
+        border-color: #023425 !important;
+        box-shadow: 0 0 0 1px #023425 !important;
+    }
+
+    /* 11. Selectbox */
+    div[data-baseweb="select"] {
+        border-radius: 2px !important;
+    }
+
+    /* 12. Metriken */
+    div[data-testid="stMetric"] {
+        background-color: #ffffff !important;
+        border: 1px solid #dfe1d6 !important;
+        border-radius: 4px !important;
+        padding: 1rem !important;
+    }
+
+    div[data-testid="stMetricValue"] {
+        color: #023425 !important;
+        font-family: 'Cormorant Garamond', serif !important;
+        font-size: 2rem !important;
+    }
+
+    /* 13. Info / Warning / Success Boxen */
+    div[data-testid="stAlert"] {
+        border-radius: 2px !important;
+        border-left: 3px solid #023425 !important;
+    }
+
+    /* 14. Dataframe */
+    div[data-testid="stDataFrame"] {
+        border: 1px solid #dfe1d6 !important;
+        border-radius: 4px !important;
+    }
+
+    /* 15. Sidebar Logo Bereich */
     [data-testid="stSidebarUserContent"] {
-        padding-top: 1rem; 
+        padding-top: 1rem !important;
     }
-            
+
     </style>
 """, unsafe_allow_html=True)
 
@@ -1731,9 +1843,20 @@ with st.sidebar:
     
     st.markdown("**Start Here**")
     with st.container(border=True):
+       if 'current_company_id' not in st.session_state:
+        user_meta = st.session_state['user'].user_metadata or {}
+        default_company = user_meta.get('company_name', '')
+        st.session_state['current_company_id'] = default_company
+
         company_name = st.text_input("Company Name / ID", placeholder="Enter Name...", key="current_company_id")
+
         # NEU: Das Reporting-Jahr
         reporting_year = st.selectbox("Reporting Year", ["2023", "2024", "2025", "2026"], index=1, key="current_year")
+
+        from datetime import datetime
+        current_year = str(datetime.now().year)
+        if reporting_year != current_year:
+            st.warning(f"Achtung: Sie berichten fuer {reporting_year}, das aktuelle Jahr ist {current_year}.")
         
         # --- NEU: Profil aus Datenbank laden ---
         if company_name:
