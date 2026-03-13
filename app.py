@@ -1594,7 +1594,11 @@ def generate_audit_pdf(company, year, report_text, df, country="Austria", gauge_
     
     pdf.set_text_color(0, 0, 0)
     
-    return pdf.output(dest='S').encode('latin-1')
+    output = pdf.output(dest='S')
+    if isinstance(output, (bytes, bytearray)):
+        return bytes(output)
+    return output.encode('latin-1')
+
 if 'user' not in st.session_state:
     st.markdown("# Ready for ESG")
     st.markdown("### Your expert tool for simplified ESG reporting.")
@@ -3218,6 +3222,8 @@ elif menu == "Data Entry Center":
             
             st.markdown("---")
             st.button("Confirm & Upload", on_click=save_s1_basic_direct, type="primary", use_container_width=True)
+            if st.session_state.get('s1_step_complete'):
+                st.success("Daten erfolgreich gespeichert.")
 
         st.markdown("---")
         c1, c2 = st.columns([1, 4])
@@ -3248,6 +3254,8 @@ elif menu == "Data Entry Center":
 
             st.markdown("---")
             st.button("Confirm & Upload", on_click=save_s1_health_direct, type="primary", use_container_width=True)
+            if st.session_state.get('s1_2_step_complete'):
+                st.success("Daten erfolgreich gespeichert.")
 
         st.markdown("---")
         c1, c2 = st.columns([1, 4])
@@ -3301,6 +3309,8 @@ elif menu == "Data Entry Center":
 
             st.markdown("---")
             st.button("Confirm & Upload", on_click=save_s1_wages_direct, type="primary", use_container_width=True)
+            if st.session_state.get('s1_3_step_complete'):
+                st.success("Daten erfolgreich gespeichert.")
 
         st.markdown("---")
         c1, c2 = st.columns([1, 4])
@@ -3335,6 +3345,8 @@ elif menu == "Data Entry Center":
             
             st.markdown("---")
             st.button("Confirm & Upload", on_click=save_s1_training_direct, type="primary", use_container_width=True)
+            if st.session_state.get('s1_4_step_complete'):
+                st.success("Daten erfolgreich gespeichert.")
 
         st.markdown("---")
         c1, c2 = st.columns([1, 4])
@@ -3737,6 +3749,8 @@ elif menu == "Data Entry Center":
             
             st.markdown("---")
             st.button("Confirm & Upload", on_click=save_g1_direct, type="primary", use_container_width=True)
+            if st.session_state.get('g1_step_complete'):
+                st.success("Daten erfolgreich gespeichert.")
 
         st.markdown("---")
         c1, c2 = st.columns([1, 4])
@@ -3772,6 +3786,8 @@ elif menu == "Data Entry Center":
 
             st.markdown("---")
             st.button("Confirm & Upload", on_click=save_g2_direct, type="primary", use_container_width=True)
+            if st.session_state.get('g2_step_complete'):
+                st.success("Daten erfolgreich gespeichert.")
 
         st.markdown("---")
         c1, c2 = st.columns([1, 4])
@@ -3807,6 +3823,8 @@ elif menu == "Data Entry Center":
 
             st.markdown("---")
             st.button("Confirm & Upload", on_click=save_g3_direct, type="primary", use_container_width=True)
+            if st.session_state.get('g3_step_complete'):
+                st.success("Daten erfolgreich gespeichert.")
 
         st.markdown("---")
         c1, c2 = st.columns([1, 4])
