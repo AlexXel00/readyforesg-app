@@ -243,10 +243,11 @@ st.markdown("""
     }
 
     section[data-testid="stSidebar"] [data-testid="stImage"] img {
-    border: 2px solid #fdfef9;
+    border: 1px solid #fdfef9;
     border-radius: 50%;
-    padding: 5px;
-    }        
+    padding: 3px;
+    max-width: 90px !important;
+}        
     </style>
 """, unsafe_allow_html=True)
 
@@ -1754,44 +1755,35 @@ if subscription is None:
 
 # Ab hier laeuft die normale App (Subscription ist aktiv)
 # --- SIDEBAR ---
-# --- SIDEBAR ---
 with st.sidebar:
     st.markdown("""
         <style>
         [data-testid="stSidebarHeader"] {
             display: none !important;
         }
-        
         [data-testid="stSidebarUserContent"] {
             padding-top: 0rem !important;
         }
-
         [data-testid="stSidebar"] [data-testid="stImage"] {
             display: flex;
             justify-content: flex-start !important;
-            margin-top: -5px !important;  
-            margin-left: -65px !important; 
-            margin-bottom: 10px !important; 
+            margin-top: -5px !important;
+            margin-left: -65px !important;
+            margin-bottom: 10px !important;
         }
-
         </style>
     """, unsafe_allow_html=True)
-    
-    st.image("logo2.svg", width=200)
+
+    st.image("logo2.svg", width=90)
     st.caption(f"{st.session_state['user'].email}")
     if st.button("Logout"):
         logout()
 
     st.header("Ready for ESG")
     st.markdown("### Client Mandate")
-    
+
     st.markdown("**Start Here**")
     with st.container(border=True):
-       if 'current_company_id' not in st.session_state:
-        user_meta = st.session_state['user'].user_metadata or {}
-        default_company = user_meta.get('company_name', '')
-        st.session_state['current_company_id'] = default_company
-
         if 'current_company_id' not in st.session_state:
             user_meta = st.session_state['user'].user_metadata or {}
             default_company = user_meta.get('company_name', '')
@@ -1799,15 +1791,13 @@ with st.sidebar:
 
         company_name = st.text_input("Company Name / ID", placeholder="Enter Name...", key="current_company_id")
 
-        # NEU: Das Reporting-Jahr
         reporting_year = st.selectbox("Reporting Year", ["2023", "2024", "2025", "2026"], index=1, key="current_year")
 
         from datetime import datetime
         current_year = str(datetime.now().year)
         if reporting_year != current_year:
-            st.warning(f"Achtung: Sie berichten fuer {reporting_year}, das aktuelle Jahr ist {current_year}.")
-        
-        # --- NEU: Profil aus Datenbank laden ---
+            st.warning(f"Achtung: Sie berichten für {reporting_year}, das aktuelle Jahr ist {current_year}.")
+
         if company_name:
             if st.session_state.get('loaded_company') != company_name or st.session_state.get('loaded_year') != reporting_year:
                 import json
@@ -1849,51 +1839,25 @@ with st.sidebar:
                         pass
                 st.session_state['loaded_company'] = company_name
                 st.session_state['loaded_year'] = reporting_year
-        # --------------------------------------
 
     st.markdown("---")
-    
+
     menu = st.radio("Main Menu", ["Dashboard", "Data Entry Center", "Document Portal", "Reports", "Settings"])
-    
+
     if menu == "Data Entry Center":
         st.markdown("---")
         if st.button("Reset Wizard"):
             st.session_state['entry_stage'] = 'main'
-            
-            st.session_state['e1_batch_list'] = []
-            st.session_state['e1_2_batch_list'] = []
-            st.session_state['e2_batch_list'] = []
-            st.session_state['e3_batch_list'] = []
-            st.session_state['e4_batch_list'] = []
-            st.session_state['e5_batch_list'] = []
-            st.session_state['e6_batch_list'] = []        
-            st.session_state['e_water_batch_list'] = []
-            st.session_state['e_bio_batch_list'] = []
-            st.session_state['s1_batch_list'] = []
-            st.session_state['s1_2_batch_list'] = []
-            st.session_state['s1_3_batch_list'] = []
-            st.session_state['s1_4_batch_list'] = []
-            st.session_state['s2_batch_list'] = []
-            st.session_state['s3_batch_list'] = []
-            st.session_state['s4_batch_list'] = []
-            
-            st.session_state['e1_step_complete'] = False
-            st.session_state['e1_2_step_complete'] = False
-            st.session_state['e2_step_complete'] = False
-            st.session_state['e3_step_complete'] = False
-            st.session_state['e4_step_complete'] = False
-            st.session_state['e5_step_complete'] = False
-            st.session_state['e6_step_complete'] = False 
-            st.session_state['e_water_step_complete'] = False
-            st.session_state['e_bio_step_complete'] = False
-            st.session_state['s1_step_complete'] = False
-            st.session_state['s1_2_step_complete'] = False
-            st.session_state['s1_3_step_complete'] = False
-            st.session_state['s1_4_step_complete'] = False
-            st.session_state['s2_step_complete'] = False
-            st.session_state['s3_step_complete'] = False
-            st.session_state['s4_step_complete'] = False
-
+            for key in ['e1_batch_list', 'e1_2_batch_list', 'e2_batch_list', 'e3_batch_list',
+                        'e4_batch_list', 'e5_batch_list', 'e6_batch_list', 'e_water_batch_list',
+                        'e_bio_batch_list', 's1_batch_list', 's1_2_batch_list', 's1_3_batch_list',
+                        's1_4_batch_list', 's2_batch_list', 's3_batch_list', 's4_batch_list']:
+                st.session_state[key] = []
+            for key in ['e1_step_complete', 'e1_2_step_complete', 'e2_step_complete', 'e3_step_complete',
+                        'e4_step_complete', 'e5_step_complete', 'e6_step_complete', 'e_water_step_complete',
+                        'e_bio_step_complete', 's1_step_complete', 's1_2_step_complete', 's1_3_step_complete',
+                        's1_4_step_complete', 's2_step_complete', 's3_step_complete', 's4_step_complete']:
+                st.session_state[key] = False
             st.rerun()
 
 # --- MAIN APP ---
