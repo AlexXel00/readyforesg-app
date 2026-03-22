@@ -7,6 +7,7 @@ from openai import OpenAI
 import time
 import uuid
 import plotly.graph_objects as go
+lang = st.session_state.get('lang', 'en')
 from translations import t, LANGUAGES
 
 # --- DAS ZENTRALE ESRS GEHIRN (Mapping für Tags & Einheiten) ---
