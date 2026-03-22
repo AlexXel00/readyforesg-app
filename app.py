@@ -7,6 +7,7 @@ from openai import OpenAI
 import time
 import uuid
 import plotly.graph_objects as go
+from translations import t, LANGUAGES
 
 # --- DAS ZENTRALE ESRS GEHIRN (Mapping für Tags & Einheiten) ---
 ESRS_MAP = {
@@ -1780,6 +1781,9 @@ with st.sidebar:
 
     st.image("logo2.svg", width=60)
     st.caption(f"{st.session_state['user'].email}")
+     # HIER - Sprache
+    lang_name = st.selectbox("Language", list(LANGUAGES.keys()), index=0)
+    lang = LANGUAGES[lang_name]
     if st.button("Logout"):
         logout()
 
