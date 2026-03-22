@@ -1717,19 +1717,19 @@ if subscription is None:
         st.markdown("[Zur Website](https://readyforesg.com)")
 
     with col2:
-    with st.container(border=True):
-        st.markdown(f"**{t('request_access', lang)}**")
-        with st.form("request_access_form"):
-            req_name = st.text_input(t("your_name", lang))
-            req_company = st.text_input(t("company_name", lang))
-            req_plan = st.selectbox(t("desired_package", lang), [
-                "ESG Ready (1.099 EUR)",
-                "ESG Certified (1.799 EUR)",
-                "ESG Partner (3.299 EUR)",
-                "Erstgespräch (kostenlos)"
-            ])
-            req_message = st.text_area(t("message_optional", lang), height=100)
-            submitted = st.form_submit_button(t("send_request", lang), type="primary", use_container_width=True)
+        with st.container(border=True):
+            st.markdown(f"**{t('request_access', lang)}**")
+            with st.form("request_access_form"):
+                req_name = st.text_input(t("your_name", lang))
+                req_company = st.text_input(t("company_name", lang))
+                req_plan = st.selectbox(t("desired_package", lang), [
+                    "ESG Ready (1.099 EUR)",
+                    "ESG Certified (1.799 EUR)",
+                    "ESG Partner (3.299 EUR)",
+                    "Erstgespräch (kostenlos)"
+                ])
+                req_message = st.text_area(t("message_optional", lang), height=100)
+                submitted = st.form_submit_button(t("send_request", lang), type="primary", use_container_width=True)
 
                 if submitted:
                     if not req_name or not req_company:
