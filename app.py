@@ -4015,6 +4015,7 @@ elif menu == t("reports", lang):
                 # --- NEU: 3 Diagramme (inkl. ESG Risk Score) ---
                 my_bar.progress(90, text="Generating ESG Charts for PDF...")
                 import plotly.graph_objects as go
+                lang = st.session_state.get('lang', 'en')
                 
                 est_mask = df_for_pdf['fuel_type'].str.contains("ESTIMATE", case=False, na=False) | (df_for_pdf['type'] == 'Estimate')
                 quality_score = int(((len(df_for_pdf) - est_mask.sum()) / len(df_for_pdf)) * 100) if len(df_for_pdf) > 0 else 0
