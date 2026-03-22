@@ -1,6 +1,5 @@
 # translations.py
 # Sprachsystem fuer Ready for ESG
-# Aufruf: from translations import t, set_language, LANGUAGES
 
 LANGUAGES = {
     "English": "en",
@@ -428,12 +427,165 @@ TRANSLATIONS = {
     },
     "no_data": {
         "en": "No data found. Please enter data in the 'Data Entry Center'.",
-        "de": "Keine Daten gefunden. Bitte geben Sie Daten im 'Dateneingabe'-Bereich ein.",
+        "de": "Keine Daten gefunden. Bitte geben Sie Daten im Dateneingabebereich ein.",
         "fr": "Aucune donnée trouvée. Veuillez saisir des données dans le centre de saisie.",
         "it": "Nessun dato trovato. Inserire dati nel centro di inserimento dati.",
         "nl": "Geen gegevens gevonden. Voer gegevens in via het gegevensinvoercentrum.",
         "da": "Ingen data fundet. Indtast venligst data i dataindtastningscentret.",
         "sv": "Inga data hittades. Ange data i datainmatningscentret."
+    },
+    "overall_performance": {
+        "en": "1. Overall ESG Performance",
+        "de": "1. Gesamte ESG-Leistung",
+        "fr": "1. Performance ESG globale",
+        "it": "1. Prestazioni ESG complessive",
+        "nl": "1. Algehele ESG-prestaties",
+        "da": "1. Samlet ESG-præstation",
+        "sv": "1. Övergripande ESG-prestanda"
+    },
+    "high_precision": {
+        "en": "High Precision",
+        "de": "Hohe Präzision",
+        "fr": "Haute précision",
+        "it": "Alta precisione",
+        "nl": "Hoge precisie",
+        "da": "Høj præcision",
+        "sv": "Hög precision"
+    },
+    "needs_exact_data": {
+        "en": "Needs Exact Data",
+        "de": "Exakte Daten erforderlich",
+        "fr": "Données exactes requises",
+        "it": "Dati esatti necessari",
+        "nl": "Exacte gegevens vereist",
+        "da": "Nøjagtige data påkrævet",
+        "sv": "Exakta data krävs"
+    },
+    "carbon_risk": {
+        "en": "2. Carbon Risk & Data Coverage",
+        "de": "2. CO2-Risiko & Datenabdeckung",
+        "fr": "2. Risque carbone & couverture des données",
+        "it": "2. Rischio carbonio & copertura dati",
+        "nl": "2. Koolstofrisico & gegevensdekking",
+        "da": "2. Kulstofsrisiko & datadækning",
+        "sv": "2. Kolrisk & datatäckning"
+    },
+    "data_readiness": {
+        "en": "Data Readiness (ESG Score)",
+        "de": "Datenbereitschaft (ESG-Score)",
+        "fr": "Disponibilité des données (Score ESG)",
+        "it": "Prontezza dati (Punteggio ESG)",
+        "nl": "Databereidheid (ESG-score)",
+        "da": "Databeredskab (ESG-score)",
+        "sv": "Databeredskap (ESG-poäng)"
+    },
+    "carbon_by_scope": {
+        "en": "Carbon Footprint by Scope (t CO2e)",
+        "de": "CO2-Fußabdruck nach Scope (t CO2e)",
+        "fr": "Empreinte carbone par portée (t CO2e)",
+        "it": "Impronta carbonica per ambito (t CO2e)",
+        "nl": "Koolstofvoetafdruk per scope (t CO2e)",
+        "da": "Kulstofaftryk efter omfang (t CO2e)",
+        "sv": "Koldioxidavtryck per scope (t CO2e)"
+    },
+    "sustainability_targets": {
+        "en": "3. Corporate Sustainability Targets",
+        "de": "3. Unternehmensnachhaltigkeitsziele",
+        "fr": "3. Objectifs de durabilité de l'entreprise",
+        "it": "3. Obiettivi di sostenibilità aziendale",
+        "nl": "3. Duurzaamheidsdoelstellingen",
+        "da": "3. Virksomhedens bæredygtighedsmål",
+        "sv": "3. Företagets hållbarhetsmål"
+    },
+    "current_target": {
+        "en": "Current Active Target:",
+        "de": "Aktuelles Ziel:",
+        "fr": "Objectif actif actuel:",
+        "it": "Obiettivo attivo corrente:",
+        "nl": "Huidig actief doel:",
+        "da": "Nuværende aktivt mål:",
+        "sv": "Nuvarande aktivt mål:"
+    },
+    "target_progress": {
+        "en": "Target Completion Progress (Estimated based on current vs baseline)",
+        "de": "Zielfortschritt (Geschätzt basierend auf aktuellen Daten)",
+        "fr": "Progression vers l'objectif (Estimé)",
+        "it": "Progresso verso l'obiettivo (Stimato)",
+        "nl": "Voortgang naar doel (Geschat)",
+        "da": "Fremskridt mod mål (Estimeret)",
+        "sv": "Framsteg mot mål (Uppskattat)"
+    },
+    "no_targets": {
+        "en": "No emission targets defined yet. Go to Module E6 in the Data Entry Center to set your corporate targets.",
+        "de": "Noch keine Emissionsziele definiert. Gehen Sie zu Modul E6 im Dateneingabezentrum.",
+        "fr": "Aucun objectif d'émission défini. Allez au module E6 pour définir vos objectifs.",
+        "it": "Nessun obiettivo di emissione definito. Vai al modulo E6 per impostare gli obiettivi.",
+        "nl": "Geen emissiedoelen gedefinieerd. Ga naar module E6 om uw doelen in te stellen.",
+        "da": "Ingen emissionsmål defineret. Gå til modul E6 for at sætte mål.",
+        "sv": "Inga utsläppsmål definierade. Gå till modul E6 för att sätta mål."
+    },
+    "data_management": {
+        "en": "4. Data Management & Auditor Index",
+        "de": "4. Datenverwaltung & Prüfindex",
+        "fr": "4. Gestion des données & Index d'audit",
+        "it": "4. Gestione dati & Indice revisione",
+        "nl": "4. Gegevensbeheer & Auditindex",
+        "da": "4. Datastyring & Revisionsindeks",
+        "sv": "4. Datahantering & Revisionsindex"
+    },
+    "view_manage_data": {
+        "en": "Click to View & Manage Raw Data Records",
+        "de": "Klicken zum Anzeigen & Verwalten der Rohdaten",
+        "fr": "Cliquer pour afficher et gérer les données brutes",
+        "it": "Clicca per visualizzare e gestire i dati grezzi",
+        "nl": "Klik om ruwe gegevens te bekijken en te beheren",
+        "da": "Klik for at se og administrere rådata",
+        "sv": "Klicka för att visa och hantera rådata"
+    },
+    "delete_record": {
+        "en": "Delete a Record",
+        "de": "Datensatz löschen",
+        "fr": "Supprimer un enregistrement",
+        "it": "Elimina un record",
+        "nl": "Record verwijderen",
+        "da": "Slet en post",
+        "sv": "Ta bort en post"
+    },
+    "select_record_delete": {
+        "en": "Select record to delete",
+        "de": "Datensatz zum Löschen auswählen",
+        "fr": "Sélectionner l'enregistrement à supprimer",
+        "it": "Seleziona il record da eliminare",
+        "nl": "Selecteer te verwijderen record",
+        "da": "Vælg post der skal slettes",
+        "sv": "Välj post att ta bort"
+    },
+    "delete_button": {
+        "en": "Delete Record",
+        "de": "Datensatz löschen",
+        "fr": "Supprimer l'enregistrement",
+        "it": "Elimina record",
+        "nl": "Record verwijderen",
+        "da": "Slet post",
+        "sv": "Ta bort post"
+    },
+    "record_deleted": {
+        "en": "Record deleted successfully.",
+        "de": "Datensatz erfolgreich gelöscht.",
+        "fr": "Enregistrement supprimé avec succès.",
+        "it": "Record eliminato con successo.",
+        "nl": "Record succesvol verwijderd.",
+        "da": "Post slettet succesfuldt.",
+        "sv": "Post raderad framgångsrikt."
+    },
+    "delete_failed": {
+        "en": "Failed to delete record:",
+        "de": "Fehler beim Löschen:",
+        "fr": "Échec de la suppression:",
+        "it": "Eliminazione fallita:",
+        "nl": "Verwijderen mislukt:",
+        "da": "Sletning mislykkedes:",
+        "sv": "Borttagning misslyckades:"
     },
 
     # --- DATA ENTRY ---
@@ -590,6 +742,69 @@ TRANSLATIONS = {
         "da": "Data gemt succesfuldt.",
         "sv": "Data sparades framgångsrikt."
     },
+    "exact_records": {
+        "en": "Exact Records (Bills)",
+        "de": "Exakte Belege (Rechnungen)",
+        "fr": "Enregistrements exacts (Factures)",
+        "it": "Registrazioni esatte (Fatture)",
+        "nl": "Exacte records (Rekeningen)",
+        "da": "Nøjagtige poster (Regninger)",
+        "sv": "Exakta poster (Räkningar)"
+    },
+    "estimation_calculator": {
+        "en": "Estimation Calculator",
+        "de": "Schätzungsrechner",
+        "fr": "Calculateur d'estimation",
+        "it": "Calcolatore di stima",
+        "nl": "Schattingscalculator",
+        "da": "Estimeringsberegner",
+        "sv": "Uppskattningskalkylator"
+    },
+    "add_record": {
+        "en": "Add Record",
+        "de": "Datensatz hinzufügen",
+        "fr": "Ajouter un enregistrement",
+        "it": "Aggiungi record",
+        "nl": "Record toevoegen",
+        "da": "Tilføj post",
+        "sv": "Lägg till post"
+    },
+    "add_estimate": {
+        "en": "Add Estimate",
+        "de": "Schätzung hinzufügen",
+        "fr": "Ajouter une estimation",
+        "it": "Aggiungi stima",
+        "nl": "Schatting toevoegen",
+        "da": "Tilføj estimat",
+        "sv": "Lägg till uppskattning"
+    },
+    "reference_note": {
+        "en": "Reference / Note",
+        "de": "Referenz / Notiz",
+        "fr": "Référence / Note",
+        "it": "Riferimento / Nota",
+        "nl": "Referentie / Notitie",
+        "da": "Reference / Note",
+        "sv": "Referens / Anteckning"
+    },
+    "only_if_unavailable": {
+        "en": "Only use this method if actual data is unavailable (Bills/Meters).",
+        "de": "Nur verwenden wenn keine genauen Daten verfügbar sind (Rechnungen/Zähler).",
+        "fr": "N'utiliser cette méthode que si les données réelles sont indisponibles.",
+        "it": "Utilizzare questo metodo solo se i dati effettivi non sono disponibili.",
+        "nl": "Gebruik deze methode alleen als werkelijke gegevens niet beschikbaar zijn.",
+        "da": "Brug kun denne metode hvis faktiske data er utilgængelige.",
+        "sv": "Använd bara denna metod om faktiska data är otillgängliga."
+    },
+    "complete_return": {
+        "en": "Complete Pillar & Return to Main Menu",
+        "de": "Säule abschließen & zum Hauptmenü zurückkehren",
+        "fr": "Terminer le pilier & retourner au menu principal",
+        "it": "Completa pilastro & torna al menu principale",
+        "nl": "Pijler voltooien & terug naar hoofdmenu",
+        "da": "Afslut søjle & tilbage til hovedmenuen",
+        "sv": "Slutför pelare & återgå till huvudmenyn"
+    },
 
     # --- REPORTS ---
     "generate_report": {
@@ -618,6 +833,42 @@ TRANSLATIONS = {
         "nl": "Geen gegevens gevonden. Voer eerst gegevens in.",
         "da": "Ingen data fundet. Indtast venligst data først.",
         "sv": "Inga data hittades. Ange data först."
+    },
+    "report_generated": {
+        "en": "Full Audit Report generated successfully.",
+        "de": "Vollständiger Prüfbericht erfolgreich erstellt.",
+        "fr": "Rapport d'audit complet généré avec succès.",
+        "it": "Rapporto di audit completo generato con successo.",
+        "nl": "Volledig auditrapport succesvol gegenereerd.",
+        "da": "Fuld revisionsrapport genereret succesfuldt.",
+        "sv": "Fullständig revisionsrapport genererades framgångsrikt."
+    },
+    "review_edit": {
+        "en": "Review and Edit",
+        "de": "Überprüfen und Bearbeiten",
+        "fr": "Réviser et modifier",
+        "it": "Rivedi e modifica",
+        "nl": "Beoordelen en bewerken",
+        "da": "Gennemse og rediger",
+        "sv": "Granska och redigera"
+    },
+    "review_edit_desc": {
+        "en": "You can make final adjustments to the generated report here before downloading.",
+        "de": "Sie können hier letzte Anpassungen am generierten Bericht vornehmen, bevor Sie ihn herunterladen.",
+        "fr": "Vous pouvez apporter des ajustements finaux au rapport généré ici avant de le télécharger.",
+        "it": "È possibile apportare aggiustamenti finali al rapporto generato prima di scaricarlo.",
+        "nl": "U kunt hier definitieve aanpassingen aan het gegenereerde rapport aanbrengen voordat u het downloadt.",
+        "da": "Du kan foretage endelige justeringer af den genererede rapport her inden download.",
+        "sv": "Du kan göra slutliga justeringar av den genererade rapporten här innan nedladdning."
+    },
+    "ai_failed": {
+        "en": "AI Generation failed:",
+        "de": "KI-Generierung fehlgeschlagen:",
+        "fr": "La génération IA a échoué:",
+        "it": "Generazione AI fallita:",
+        "nl": "AI-generatie mislukt:",
+        "da": "AI-generering mislykkedes:",
+        "sv": "AI-generering misslyckades:"
     },
 
     # --- REPORT AI PROMPTS ---
@@ -677,6 +928,15 @@ TRANSLATIONS = {
         "da": "Ekspertverificering",
         "sv": "Expertverifiering"
     },
+    "expert_verification_text": {
+        "en": "Developed with the help of environmental management experts to ensure data accuracy.",
+        "de": "Entwickelt mit Hilfe von Umweltmanagement-Experten zur Sicherstellung der Datengenauigkeit.",
+        "fr": "Développé avec l'aide d'experts en gestion environnementale pour assurer l'exactitude des données.",
+        "it": "Sviluppato con l'aiuto di esperti di gestione ambientale per garantire l'accuratezza dei dati.",
+        "nl": "Ontwikkeld met de hulp van milieubeheerexperts om de nauwkeurigheid van gegevens te garanderen.",
+        "da": "Udviklet med hjælp fra miljøledelseseksperter for at sikre datanøjagtighed.",
+        "sv": "Utvecklat med hjälp av miljöledningsexperter för att säkerställa datanoggrannhet."
+    },
     "eu_compliance": {
         "en": "EU Compliance",
         "de": "EU-Konformität",
@@ -685,6 +945,15 @@ TRANSLATIONS = {
         "nl": "EU-naleving",
         "da": "EU-overholdelse",
         "sv": "EU-efterlevnad"
+    },
+    "eu_compliance_text": {
+        "en": "Follows highest industry standards and EU directives (CSRD / ESRS).",
+        "de": "Folgt den höchsten Branchenstandards und EU-Richtlinien (CSRD / ESRS).",
+        "fr": "Suit les normes industrielles les plus élevées et les directives UE (CSRD / ESRS).",
+        "it": "Segue i più alti standard del settore e le direttive UE (CSRD / ESRS).",
+        "nl": "Volgt de hoogste industrienormen en EU-richtlijnen (CSRD / ESRS).",
+        "da": "Følger de højeste branchestandarder og EU-direktiver (CSRD / ESRS).",
+        "sv": "Följer de högsta branschstandarderna och EU-direktiven (CSRD / ESRS)."
     },
     "settings_coming_soon": {
         "en": "Settings coming soon.",
@@ -695,162 +964,50 @@ TRANSLATIONS = {
         "da": "Indstillinger kommer snart.",
         "sv": "Inställningar kommer snart."
     },
-    # Diese Keys am Ende von TRANSLATIONS{} hinzufuegen, VOR der letzten schliessenden }
-# Einfuegen nach "settings_coming_soon": {...}
-
-    # --- DASHBOARD ---
-    "overall_performance": {
-        "en": "1. Overall ESG Performance",
-        "de": "1. Gesamte ESG-Leistung",
-        "fr": "1. Performance ESG globale",
-        "it": "1. Prestazioni ESG complessive",
-        "nl": "1. Algehele ESG-prestaties",
-        "da": "1. Samlet ESG-præstation",
-        "sv": "1. Övergripande ESG-prestanda"
+    "two_factor_auth": {
+        "en": "Two-Factor Authentication",
+        "de": "Zwei-Faktor-Authentifizierung",
+        "fr": "Authentification à deux facteurs",
+        "it": "Autenticazione a due fattori",
+        "nl": "Twee-factor-authenticatie",
+        "da": "To-faktor-godkendelse",
+        "sv": "Tvåfaktorsautentisering"
     },
-    "high_precision": {
-        "en": "High Precision",
-        "de": "Hohe Präzision",
-        "fr": "Haute précision",
-        "it": "Alta precisione",
-        "nl": "Hoge precisie",
-        "da": "Høj præcision",
-        "sv": "Hög precision"
+    "setup_authenticator": {
+        "en": "Setup Authenticator App",
+        "de": "Authenticator-App einrichten",
+        "fr": "Configurer l'application d'authentification",
+        "it": "Configura app di autenticazione",
+        "nl": "Authenticator-app instellen",
+        "da": "Opsæt autentificeringsapp",
+        "sv": "Konfigurera autentiseringsapp"
     },
-    "needs_exact_data": {
-        "en": "Needs Exact Data",
-        "de": "Exakte Daten erforderlich",
-        "fr": "Données exactes requises",
-        "it": "Dati esatti necessari",
-        "nl": "Exacte gegevens vereist",
-        "da": "Nøjagtige data påkrævet",
-        "sv": "Exakta data krävs"
+    "mfa_activated": {
+        "en": "Two-factor authentication is now active.",
+        "de": "Zwei-Faktor-Authentifizierung ist jetzt aktiv.",
+        "fr": "L'authentification à deux facteurs est maintenant active.",
+        "it": "L'autenticazione a due fattori è ora attiva.",
+        "nl": "Twee-factor-authenticatie is nu actief.",
+        "da": "To-faktor-godkendelse er nu aktiv.",
+        "sv": "Tvåfaktorsautentisering är nu aktiv."
     },
-    "carbon_risk": {
-        "en": "2. Carbon Risk & Data Coverage",
-        "de": "2. CO2-Risiko & Datenabdeckung",
-        "fr": "2. Risque carbone & couverture des données",
-        "it": "2. Rischio carbonio & copertura dati",
-        "nl": "2. Koolstofrisico & gegevensdekking",
-        "da": "2. Kulstofsrisiko & datadækning",
-        "sv": "2. Kolrisk & datatäckning"
+    "session_expired": {
+        "en": "Your session has expired. Please login again.",
+        "de": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
+        "fr": "Votre session a expiré. Veuillez vous reconnecter.",
+        "it": "La sessione è scaduta. Effettuare nuovamente il login.",
+        "nl": "Uw sessie is verlopen. Log opnieuw in.",
+        "da": "Din session er udløbet. Log venligst ind igen.",
+        "sv": "Din session har gått ut. Logga in igen."
     },
-    "data_readiness": {
-        "en": "Data Readiness (ESG Score)",
-        "de": "Datenbereitschaft (ESG-Score)",
-        "fr": "Disponibilité des données (Score ESG)",
-        "it": "Prontezza dati (Punteggio ESG)",
-        "nl": "Databereidheid (ESG-score)",
-        "da": "Databeredskab (ESG-score)",
-        "sv": "Databeredskap (ESG-poäng)"
-    },
-    "carbon_by_scope": {
-        "en": "Carbon Footprint by Scope (t CO2e)",
-        "de": "CO2-Fußabdruck nach Scope (t CO2e)",
-        "fr": "Empreinte carbone par portée (t CO2e)",
-        "it": "Impronta carbonica per ambito (t CO2e)",
-        "nl": "Koolstofvoetafdruk per scope (t CO2e)",
-        "da": "Kulstofaftryk efter omfang (t CO2e)",
-        "sv": "Koldioxidavtryck per scope (t CO2e)"
-    },
-    "sustainability_targets": {
-        "en": "3. Corporate Sustainability Targets",
-        "de": "3. Unternehmensnachhaltigkeitsziele",
-        "fr": "3. Objectifs de durabilité de l'entreprise",
-        "it": "3. Obiettivi di sostenibilità aziendale",
-        "nl": "3. Duurzaamheidsdoelstellingen",
-        "da": "3. Virksomhedens bæredygtighedsmål",
-        "sv": "3. Företagets hållbarhetsmål"
-    },
-    "current_target": {
-        "en": "Current Active Target:",
-        "de": "Aktuelles Ziel:",
-        "fr": "Objectif actif actuel:",
-        "it": "Obiettivo attivo corrente:",
-        "nl": "Huidig actief doel:",
-        "da": "Nuværende aktivt mål:",
-        "sv": "Nuvarande aktivt mål:"
-    },
-    "target_progress": {
-        "en": "Target Completion Progress (Estimated based on current vs baseline)",
-        "de": "Zielfortschritt (Geschätzt basierend auf aktuellen Daten)",
-        "fr": "Progression vers l'objectif (Estimé)",
-        "it": "Progresso verso l'obiettivo (Stimato)",
-        "nl": "Voortgang naar doel (Geschat)",
-        "da": "Fremskridt mod mål (Estimeret)",
-        "sv": "Framsteg mot mål (Uppskattat)"
-    },
-    "no_targets": {
-        "en": "No emission targets defined yet. Go to Module E6 in the Data Entry Center to set your corporate targets.",
-        "de": "Noch keine Emissionsziele definiert. Gehen Sie zu Modul E6 im Dateneingabezentrum.",
-        "fr": "Aucun objectif d'émission défini. Allez au module E6 pour définir vos objectifs.",
-        "it": "Nessun obiettivo di emissione definito. Vai al modulo E6 per impostare gli obiettivi.",
-        "nl": "Geen emissiedoelen gedefinieerd. Ga naar module E6 om uw doelen in te stellen.",
-        "da": "Ingen emissionsmål defineret. Gå til modul E6 for at sætte mål.",
-        "sv": "Inga utsläppsmål definierade. Gå till modul E6 för att sätta mål."
-    },
-    "data_management": {
-        "en": "4. Data Management & Auditor Index",
-        "de": "4. Datenverwaltung & Prüfindex",
-        "fr": "4. Gestion des données & Index d'audit",
-        "it": "4. Gestione dati & Indice revisione",
-        "nl": "4. Gegevensbeheer & Auditindex",
-        "da": "4. Datastyring & Revisionsindeks",
-        "sv": "4. Datahantering & Revisionsindex"
-    },
-    "view_manage_data": {
-        "en": "Click to View & Manage Raw Data Records",
-        "de": "Klicken zum Anzeigen & Verwalten der Rohdaten",
-        "fr": "Cliquer pour afficher et gérer les données brutes",
-        "it": "Clicca per visualizzare e gestire i dati grezzi",
-        "nl": "Klik om ruwe gegevens te bekijken en te beheren",
-        "da": "Klik for at se og administrere rådata",
-        "sv": "Klicka för att visa och hantera rådata"
-    },
-    "delete_record": {
-        "en": "Delete a Record",
-        "de": "Datensatz löschen",
-        "fr": "Supprimer un enregistrement",
-        "it": "Elimina un record",
-        "nl": "Record verwijderen",
-        "da": "Slet en post",
-        "sv": "Ta bort en post"
-    },
-    "select_record_delete": {
-        "en": "Select record to delete",
-        "de": "Datensatz zum Löschen auswählen",
-        "fr": "Sélectionner l'enregistrement à supprimer",
-        "it": "Seleziona il record da eliminare",
-        "nl": "Selecteer te verwijderen record",
-        "da": "Vælg post der skal slettes",
-        "sv": "Välj post att ta bort"
-    },
-    "delete_button": {
-        "en": "Delete Record",
-        "de": "Datensatz löschen",
-        "fr": "Supprimer l'enregistrement",
-        "it": "Elimina record",
-        "nl": "Record verwijderen",
-        "da": "Slet post",
-        "sv": "Ta bort post"
-    },
-    "record_deleted": {
-        "en": "Record deleted successfully.",
-        "de": "Datensatz erfolgreich gelöscht.",
-        "fr": "Enregistrement supprimé avec succès.",
-        "it": "Record eliminato con successo.",
-        "nl": "Record succesvol verwijderd.",
-        "da": "Post slettet succesfuldt.",
-        "sv": "Post raderad framgångsrikt."
-    },
-    "delete_failed": {
-        "en": "Failed to delete record:",
-        "de": "Fehler beim Löschen:",
-        "fr": "Échec de la suppression:",
-        "it": "Eliminazione fallita:",
-        "nl": "Verwijderen mislukt:",
-        "da": "Sletning mislykkedes:",
-        "sv": "Borttagning misslyckades:"
+    "no_db_connection": {
+        "en": "No database connection detected. Simulating upload...",
+        "de": "Keine Datenbankverbindung erkannt. Upload wird simuliert...",
+        "fr": "Aucune connexion à la base de données détectée. Simulation de téléchargement...",
+        "it": "Nessuna connessione al database rilevata. Simulazione caricamento...",
+        "nl": "Geen databaseverbinding gedetecteerd. Upload simuleren...",
+        "da": "Ingen databaseforbindelse registreret. Simulerer upload...",
+        "sv": "Ingen databasanslutning hittades. Simulerar uppladdning..."
     },
 }
 
