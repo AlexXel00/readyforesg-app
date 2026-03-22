@@ -1790,9 +1790,12 @@ with st.sidebar:
 
     st.markdown(f"**{t('start_here', lang)}**")
     with st.container(border=True):
-        if 'current_company_id' not in st.session_state:
+        if 'current_company_id' not in st.session_state or st.session_state['current_company_id'] == '':
             user_meta = st.session_state['user'].user_metadata or {}
-            default_company = user_meta.get('company_name', '')
+            default_company = (
+                user_meta.get('company_name') or
+                user_meta.get('raw_user_meta_data', {}).get('company_name', '')
+            )
             st.session_state['current_company_id'] = default_company
 
         company_name = st.text_input(t("company_name_id", lang), placeholder=t("enter_name", lang), key="current_company_id")
