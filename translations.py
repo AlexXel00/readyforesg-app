@@ -694,7 +694,164 @@ TRANSLATIONS = {
         "nl": "Instellingen binnenkort beschikbaar.",
         "da": "Indstillinger kommer snart.",
         "sv": "Inställningar kommer snart."
-    }
+    },
+    # Diese Keys am Ende von TRANSLATIONS{} hinzufuegen, VOR der letzten schliessenden }
+# Einfuegen nach "settings_coming_soon": {...}
+
+    # --- DASHBOARD ---
+    "overall_performance": {
+        "en": "1. Overall ESG Performance",
+        "de": "1. Gesamte ESG-Leistung",
+        "fr": "1. Performance ESG globale",
+        "it": "1. Prestazioni ESG complessive",
+        "nl": "1. Algehele ESG-prestaties",
+        "da": "1. Samlet ESG-præstation",
+        "sv": "1. Övergripande ESG-prestanda"
+    },
+    "high_precision": {
+        "en": "High Precision",
+        "de": "Hohe Präzision",
+        "fr": "Haute précision",
+        "it": "Alta precisione",
+        "nl": "Hoge precisie",
+        "da": "Høj præcision",
+        "sv": "Hög precision"
+    },
+    "needs_exact_data": {
+        "en": "Needs Exact Data",
+        "de": "Exakte Daten erforderlich",
+        "fr": "Données exactes requises",
+        "it": "Dati esatti necessari",
+        "nl": "Exacte gegevens vereist",
+        "da": "Nøjagtige data påkrævet",
+        "sv": "Exakta data krävs"
+    },
+    "carbon_risk": {
+        "en": "2. Carbon Risk & Data Coverage",
+        "de": "2. CO2-Risiko & Datenabdeckung",
+        "fr": "2. Risque carbone & couverture des données",
+        "it": "2. Rischio carbonio & copertura dati",
+        "nl": "2. Koolstofrisico & gegevensdekking",
+        "da": "2. Kulstofsrisiko & datadækning",
+        "sv": "2. Kolrisk & datatäckning"
+    },
+    "data_readiness": {
+        "en": "Data Readiness (ESG Score)",
+        "de": "Datenbereitschaft (ESG-Score)",
+        "fr": "Disponibilité des données (Score ESG)",
+        "it": "Prontezza dati (Punteggio ESG)",
+        "nl": "Databereidheid (ESG-score)",
+        "da": "Databeredskab (ESG-score)",
+        "sv": "Databeredskap (ESG-poäng)"
+    },
+    "carbon_by_scope": {
+        "en": "Carbon Footprint by Scope (t CO2e)",
+        "de": "CO2-Fußabdruck nach Scope (t CO2e)",
+        "fr": "Empreinte carbone par portée (t CO2e)",
+        "it": "Impronta carbonica per ambito (t CO2e)",
+        "nl": "Koolstofvoetafdruk per scope (t CO2e)",
+        "da": "Kulstofaftryk efter omfang (t CO2e)",
+        "sv": "Koldioxidavtryck per scope (t CO2e)"
+    },
+    "sustainability_targets": {
+        "en": "3. Corporate Sustainability Targets",
+        "de": "3. Unternehmensnachhaltigkeitsziele",
+        "fr": "3. Objectifs de durabilité de l'entreprise",
+        "it": "3. Obiettivi di sostenibilità aziendale",
+        "nl": "3. Duurzaamheidsdoelstellingen",
+        "da": "3. Virksomhedens bæredygtighedsmål",
+        "sv": "3. Företagets hållbarhetsmål"
+    },
+    "current_target": {
+        "en": "Current Active Target:",
+        "de": "Aktuelles Ziel:",
+        "fr": "Objectif actif actuel:",
+        "it": "Obiettivo attivo corrente:",
+        "nl": "Huidig actief doel:",
+        "da": "Nuværende aktivt mål:",
+        "sv": "Nuvarande aktivt mål:"
+    },
+    "target_progress": {
+        "en": "Target Completion Progress (Estimated based on current vs baseline)",
+        "de": "Zielfortschritt (Geschätzt basierend auf aktuellen Daten)",
+        "fr": "Progression vers l'objectif (Estimé)",
+        "it": "Progresso verso l'obiettivo (Stimato)",
+        "nl": "Voortgang naar doel (Geschat)",
+        "da": "Fremskridt mod mål (Estimeret)",
+        "sv": "Framsteg mot mål (Uppskattat)"
+    },
+    "no_targets": {
+        "en": "No emission targets defined yet. Go to Module E6 in the Data Entry Center to set your corporate targets.",
+        "de": "Noch keine Emissionsziele definiert. Gehen Sie zu Modul E6 im Dateneingabezentrum.",
+        "fr": "Aucun objectif d'émission défini. Allez au module E6 pour définir vos objectifs.",
+        "it": "Nessun obiettivo di emissione definito. Vai al modulo E6 per impostare gli obiettivi.",
+        "nl": "Geen emissiedoelen gedefinieerd. Ga naar module E6 om uw doelen in te stellen.",
+        "da": "Ingen emissionsmål defineret. Gå til modul E6 for at sætte mål.",
+        "sv": "Inga utsläppsmål definierade. Gå till modul E6 för att sätta mål."
+    },
+    "data_management": {
+        "en": "4. Data Management & Auditor Index",
+        "de": "4. Datenverwaltung & Prüfindex",
+        "fr": "4. Gestion des données & Index d'audit",
+        "it": "4. Gestione dati & Indice revisione",
+        "nl": "4. Gegevensbeheer & Auditindex",
+        "da": "4. Datastyring & Revisionsindeks",
+        "sv": "4. Datahantering & Revisionsindex"
+    },
+    "view_manage_data": {
+        "en": "Click to View & Manage Raw Data Records",
+        "de": "Klicken zum Anzeigen & Verwalten der Rohdaten",
+        "fr": "Cliquer pour afficher et gérer les données brutes",
+        "it": "Clicca per visualizzare e gestire i dati grezzi",
+        "nl": "Klik om ruwe gegevens te bekijken en te beheren",
+        "da": "Klik for at se og administrere rådata",
+        "sv": "Klicka för att visa och hantera rådata"
+    },
+    "delete_record": {
+        "en": "Delete a Record",
+        "de": "Datensatz löschen",
+        "fr": "Supprimer un enregistrement",
+        "it": "Elimina un record",
+        "nl": "Record verwijderen",
+        "da": "Slet en post",
+        "sv": "Ta bort en post"
+    },
+    "select_record_delete": {
+        "en": "Select record to delete",
+        "de": "Datensatz zum Löschen auswählen",
+        "fr": "Sélectionner l'enregistrement à supprimer",
+        "it": "Seleziona il record da eliminare",
+        "nl": "Selecteer te verwijderen record",
+        "da": "Vælg post der skal slettes",
+        "sv": "Välj post att ta bort"
+    },
+    "delete_button": {
+        "en": "Delete Record",
+        "de": "Datensatz löschen",
+        "fr": "Supprimer l'enregistrement",
+        "it": "Elimina record",
+        "nl": "Record verwijderen",
+        "da": "Slet post",
+        "sv": "Ta bort post"
+    },
+    "record_deleted": {
+        "en": "Record deleted successfully.",
+        "de": "Datensatz erfolgreich gelöscht.",
+        "fr": "Enregistrement supprimé avec succès.",
+        "it": "Record eliminato con successo.",
+        "nl": "Record succesvol verwijderd.",
+        "da": "Post slettet succesfuldt.",
+        "sv": "Post raderad framgångsrikt."
+    },
+    "delete_failed": {
+        "en": "Failed to delete record:",
+        "de": "Fehler beim Löschen:",
+        "fr": "Échec de la suppression:",
+        "it": "Eliminazione fallita:",
+        "nl": "Verwijderen mislukt:",
+        "da": "Sletning mislykkedes:",
+        "sv": "Borttagning misslyckades:"
+    },
 }
 
 
