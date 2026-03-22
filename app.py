@@ -1691,16 +1691,12 @@ if subscription is None:
     col1, col2 = st.columns([3, 2])
 
     with col1:
-        st.markdown("### Ihr Zugang ist noch nicht aktiv.")
-        st.markdown("""
-        Vielen Dank für Ihre Registrierung!
-        
-        Um die App nutzen zu können, benötigen Sie eine aktive Lizenz.
-        Bitte kontaktieren Sie uns um Ihren Zugang freizuschalten.
-        """)
+        st.markdown(f"### {t('access_inactive', lang)}")
+        st.markdown(t("thank_you_registration", lang))
+        st.markdown(t("need_license", lang))
 
         with st.container(border=True):
-            st.markdown("**Pakete & Preise**")
+            st.markdown(f"**{t('packages_prices', lang)}**")
             c1, c2, c3 = st.columns(3)
             with c1:
                 st.markdown("**ESG Ready**")
@@ -1721,23 +1717,23 @@ if subscription is None:
         st.markdown("[Zur Website](https://readyforesg.com)")
 
     with col2:
-        with st.container(border=True):
-            st.markdown("**Zugang anfragen**")
-            with st.form("request_access_form"):
-                req_name = st.text_input("Ihr Name")
-                req_company = st.text_input("Unternehmen")
-                req_plan = st.selectbox("Gewünschtes Paket", [
-                    "ESG Ready (1.099 EUR)",
-                    "ESG Certified (1.799 EUR)",
-                    "ESG Partner (3.299 EUR)",
-                    "Erstgespräch (kostenlos)"
-                ])
-                req_message = st.text_area("Nachricht (optional)", height=100)
-                submitted = st.form_submit_button("Anfrage senden", type="primary", use_container_width=True)
+    with st.container(border=True):
+        st.markdown(f"**{t('request_access', lang)}**")
+        with st.form("request_access_form"):
+            req_name = st.text_input(t("your_name", lang))
+            req_company = st.text_input(t("company_name", lang))
+            req_plan = st.selectbox(t("desired_package", lang), [
+                "ESG Ready (1.099 EUR)",
+                "ESG Certified (1.799 EUR)",
+                "ESG Partner (3.299 EUR)",
+                "Erstgespräch (kostenlos)"
+            ])
+            req_message = st.text_area(t("message_optional", lang), height=100)
+            submitted = st.form_submit_button(t("send_request", lang), type="primary", use_container_width=True)
 
                 if submitted:
                     if not req_name or not req_company:
-                        st.error("Bitte Name und Unternehmen angeben.")
+                        st.error(t("enter_company", lang))
                     else:
                         try:
                             user_email = st.session_state['user'].email
@@ -1747,11 +1743,11 @@ if subscription is None:
                                 "status": "pending",
                                 "plan": req_plan,
                             }).execute()
-                            st.success("Anfrage gesendet! Wir melden uns innerhalb von 24 Stunden.")
+                            st.success(t("request_sent", lang))
                         except Exception as e:
                             st.error(f"Fehler: {e}")
 
-    if st.button("Logout", key="logout_no_sub"):
+    if st.button(t("logout", lang), key="logout_no_sub"):
         logout()
 
     st.stop()
@@ -1893,7 +1889,7 @@ if not company_name:
     st.info("To proceed, please enter your Organization Name in the sidebar.")
     st.stop()
 
-if menu == "Dashboard":
+if menu == t("dashboard", lang):
     st.subheader(f"Executive ESG Scorecard: {company_name}")
     st.markdown("High-level overview of your corporate sustainability performance.")
     
@@ -2041,7 +2037,7 @@ if menu == "Dashboard":
     else:
         st.info("No data found. Please enter data in the 'Data Entry Center'.")
 
-elif menu == "Data Entry Center":
+elif menu == t("data_entry", lang):
     
     # Zwangs-Weiterleitung zum Setup
     if not st.session_state.get('company_setup_complete', False) and st.session_state.get('entry_stage', 'main') == 'main':
@@ -3884,7 +3880,7 @@ elif menu == "Data Entry Center":
             st.session_state['entry_stage'] = 'main'
             st.rerun()
 
-elif menu == "Reports":
+elif menu == t("reports", lang):
     st.subheader("Full CSRD Audit Report Generator")
     st.markdown("Generate a comprehensive, multi-page compliance report. The AI will write the report chapter by chapter to ensure maximum depth and accuracy.")
     
@@ -4160,7 +4156,7 @@ elif menu == "Reports":
                 
     else:
         st.info("No data found. Please enter data in the 'Data Entry Center' first.")
-elif menu == "Document Portal":
+elif menu == t("document_portal", lang):
     import uuid as _uuid
 
     st.header("Document Portal")
@@ -4491,7 +4487,7 @@ elif menu == "Document Portal":
                         except Exception as e:
                             st.error(f"Error: {e}")
 
-elif menu == "Settings":
+elif menu == t("settings", lang):
     st.header("Settings")
     st.info("Settings coming soon.")
     st.markdown("### Two-Factor Authentication")
