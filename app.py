@@ -1601,18 +1601,16 @@ def generate_audit_pdf(company, year, report_text, df, country="Austria", gauge_
     return output.encode('latin-1')
 
 if 'user' not in st.session_state:
-    st.markdown("# Ready for ESG")
-    st.markdown("### Your expert tool for simplified ESG reporting.")
+    st.markdown(f"# {t('app_title', lang)}")
+    st.markdown(f"### {t('app_subtitle', lang)}")
     st.markdown("---")
-
-    tab_login, tab_register = st.tabs(["Login", "Register"])
-
+    tab_login, tab_register = st.tabs([t("login", lang), t("register", lang)])
     with tab_login:
         with st.form("login_form"):
-            st.markdown("**Login to your account**")
-            email = st.text_input("Email")
-            password = st.text_input("Password", type="password")
-            submitted = st.form_submit_button("Login", type="primary", use_container_width=True)
+            st.markdown(f"**{t('login_to_account', lang)}**")
+            email = st.text_input(t("email", lang))
+            password = st.text_input(t("password", lang), type="password")
+            submitted = st.form_submit_button(t("login", lang), type="primary", use_container_width=True)
             if submitted:
                 result = login(email, password)
                 if result == "success":
@@ -1784,27 +1782,27 @@ with st.sidebar:
      # HIER - Sprache
     lang_name = st.selectbox("Language", list(LANGUAGES.keys()), index=0)
     lang = LANGUAGES[lang_name]
-    if st.button("Logout"):
+    if st.button(t("logout", lang)):
         logout()
 
     st.header("Ready for ESG")
-    st.markdown("### Client Mandate")
+    st.markdown(f"### {t('client_mandate', lang)}")
 
-    st.markdown("**Start Here**")
+    st.markdown(f"**{t('start_here', lang)}**")
     with st.container(border=True):
         if 'current_company_id' not in st.session_state:
             user_meta = st.session_state['user'].user_metadata or {}
             default_company = user_meta.get('company_name', '')
             st.session_state['current_company_id'] = default_company
 
-        company_name = st.text_input("Company Name / ID", placeholder="Enter Name...", key="current_company_id")
+        company_name = st.text_input(t("company_name_id", lang), placeholder=t("enter_name", lang), key="current_company_id")
 
-        reporting_year = st.selectbox("Reporting Year", ["2023", "2024", "2025", "2026"], index=1, key="current_year")
+        reporting_year = st.selectbox(t("reporting_year", lang), ["2023", "2024", "2025", "2026"], index=1, key="current_year")
 
         from datetime import datetime
         current_year = str(datetime.now().year)
         if reporting_year != current_year:
-            st.warning(f"Achtung: Sie berichten für {reporting_year}, das aktuelle Jahr ist {current_year}.")
+            st.warning(t("year_warning", lang, year=reporting_year, current=current_year))
 
         if company_name:
             if st.session_state.get('loaded_company') != company_name or st.session_state.get('loaded_year') != reporting_year:
@@ -1850,11 +1848,11 @@ with st.sidebar:
 
     st.markdown("---")
 
-    menu = st.radio("Main Menu", ["Dashboard", "Data Entry Center", "Document Portal", "Reports", "Settings"])
+    menu = st.radio(t("main_menu", lang), [t("dashboard", lang), t("data_entry", lang), t("document_portal", lang), t("reports", lang), t("settings", lang)])
 
     if menu == "Data Entry Center":
         st.markdown("---")
-        if st.button("Reset Wizard"):
+        if st.button(t("reset_wizard", lang)):
             st.session_state['entry_stage'] = 'main'
             for key in ['e1_batch_list', 'e1_2_batch_list', 'e2_batch_list', 'e3_batch_list',
                         'e4_batch_list', 'e5_batch_list', 'e6_batch_list', 'e_water_batch_list',
@@ -1867,6 +1865,7 @@ with st.sidebar:
                         's1_4_step_complete', 's2_step_complete', 's3_step_complete', 's4_step_complete']:
                 st.session_state[key] = False
             st.rerun()
+lang = st.session_state.get('lang', 'en')
 
 # --- MAIN APP ---
 
