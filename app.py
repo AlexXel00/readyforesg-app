@@ -1604,7 +1604,6 @@ def generate_audit_pdf(company, year, report_text, df, country="Austria", gauge_
 if 'user' not in st.session_state:
     lang_name_login = st.selectbox("Language", list(LANGUAGES.keys()), index=0, key="login_lang")
     lang = LANGUAGES[lang_name_login]
-    
     st.session_state['lang'] = lang
     st.markdown(f"# {t('app_title', lang)}")
     st.markdown(f"### {t('app_subtitle', lang)}")
