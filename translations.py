@@ -1020,6 +1020,42 @@ TRANSLATIONS = {
         "da": "Ingen databaseforbindelse registreret. Simulerer upload...",
         "sv": "Ingen databasanslutning hittades. Simulerar uppladdning..."
     },
+    "mfa_title": {
+        "en": "Two-Factor Authentication", "de": "Zwei-Faktor-Authentifizierung",
+        "fr": "Authentification à deux facteurs", "it": "Autenticazione a due fattori",
+        "nl": "Twee-factor-authenticatie", "da": "To-faktor-godkendelse", "sv": "Tvåfaktorsautentisering"
+    },
+"mfa_caption": {
+        "en": "Enter the 6-digit code from your authenticator app.",
+        "de": "Geben Sie den 6-stelligen Code aus Ihrer Authenticator-App ein.",
+        "fr": "Entrez le code à 6 chiffres de votre application d'authentification.",
+        "it": "Inserisci il codice a 6 cifre dalla tua app di autenticazione.",
+        "nl": "Voer de 6-cijferige code uit uw authenticator-app in.",
+        "da": "Indtast den 6-cifrede kode fra din autentificeringsapp.",
+        "sv": "Ange den 6-siffriga koden från din autentiseringsapp."
+    },
+"mfa_verify": {
+        "en": "Verify", "de": "Bestätigen", "fr": "Vérifier",
+        "it": "Verifica", "nl": "Verifiëren", "da": "Bekræft", "sv": "Verifiera"
+    },
+"materiality_high": {
+        "en": "Highly Relevant (Material Topic)\n\nBased on your company profile and industry, this module is considered mandatory.",
+        "de": "Sehr relevant (Wesentliches Thema)\n\nBasierend auf Ihrem Unternehmensprofil gilt dieses Modul als Pflichtangabe.",
+        "fr": "Très pertinent (Sujet matériel)\n\nBasé sur votre profil d'entreprise, ce module est considéré comme obligatoire.",
+        "it": "Molto rilevante (Argomento materiale)\n\nBasato sul profilo aziendale, questo modulo è considerato obbligatorio.",
+        "nl": "Zeer relevant (Materieel onderwerp)\n\nGebaseerd op uw bedrijfsprofiel wordt deze module als verplicht beschouwd.",
+        "da": "Meget relevant (Materielt emne)\n\nBaseret på din virksomhedsprofil anses dette modul for obligatorisk.",
+        "sv": "Mycket relevant (Materiellt ämne)\n\nBaserat på din företagsprofil anses denna modul vara obligatorisk."
+    },
+"materiality_low": {
+        "en": "Optional (Non-Material Topic)\n\nThis module was not flagged as highly relevant. You can skip it, but providing extra data adds credibility.",
+        "de": "Optional (Nicht-wesentliches Thema)\n\nDieses Modul wurde nicht als hochrelevant eingestuft. Sie können es überspringen.",
+        "fr": "Optionnel (Sujet non matériel)\n\nCe module n'a pas été signalé comme très pertinent. Vous pouvez le ignorer.",
+        "it": "Opzionale (Argomento non materiale)\n\nQuesto modulo non è stato contrassegnato come molto rilevante. Puoi saltarlo.",
+        "nl": "Optioneel (Niet-materieel onderwerp)\n\nDeze module is niet als zeer relevant gemarkeerd. U kunt het overslaan.",
+        "da": "Valgfri (Ikke-materielt emne)\n\nDette modul er ikke markeret som meget relevant. Du kan springe det over.",
+        "sv": "Valfritt (Icke-materiellt ämne)\n\nDenna modul har inte markerats som mycket relevant. Du kan hoppa över den."
+    },
 }
 
 
