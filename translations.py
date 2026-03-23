@@ -1,3 +1,5 @@
+# v2
+# translations.py
 # translations.py
 # Sprachsystem fuer Ready for ESG
 
