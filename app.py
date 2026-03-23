@@ -440,9 +440,9 @@ def show_materiality_badge(esrs_code):
     topics = st.session_state.get('material_topics', [])
     is_material = any(esrs_code in topic for topic in topics)
     if is_material:
-        st.success("**Highly Relevant (Material Topic)**\n\nBased on your company profile and industry, this module is considered mandatory. We strongly recommend completing this section to ensure compliance.")
+        st.success(t("materiality_high", lang))
     else:
-        st.info("**Optional (Non-Material Topic)**\n\nThis module was not flagged as highly relevant for your operations. You can skip it, but providing extra data provides more credibility to your report and is recommended.")
+        st.info(t("materiality_low", lang))
 
 def upload_travel_batch():
     current_company = st.session_state.get('current_company_id', '')
@@ -965,10 +965,10 @@ if 'user' not in st.session_state:
 
     if st.session_state.get('show_mfa'):
         with st.form("mfa_form"):
-            st.markdown("**Two-Factor Authentication**")
-            st.caption("Enter the 6-digit code from your authenticator app.")
-            totp_code = st.text_input("Authentication Code", max_chars=6, placeholder="123456")
-            submitted_mfa = st.form_submit_button("Verify", type="primary", use_container_width=True)
+            st.markdown(f"**{t('mfa_title', lang)}**")
+            st.caption(t("mfa_caption", lang))
+            totp_code = st.text_input(t("mfa_title", lang), max_chars=6, placeholder="123456")
+            submitted_mfa = st.form_submit_button(t("mfa_verify", lang), type="primary", use_container_width=True)
             if submitted_mfa:
                 if verify_mfa(totp_code):
                     st.session_state.pop('show_mfa', None)
@@ -1174,7 +1174,7 @@ if menu == t("dashboard", lang):
         except Exception as e:
             st.error(f"Database error: {e}")
     else:
-        st.warning("No database connection.")
+        st.warning(t("no_db_connection", lang))
 
     if rows:
         df = pd.DataFrame(rows)
@@ -1215,7 +1215,7 @@ if menu == t("dashboard", lang):
                 fig1 = go.Figure(go.Indicator(
                     mode="gauge+number", value=quality_score,
                     domain={'x': [0, 1], 'y': [0, 1]},
-                    title={'text': "% Measured Data vs. Estimates", 'font': {'size': 14}},
+                    title={'text': t("measured_vs_estimates", lang), 'font': {'size': 14}},
                     gauge={'axis': {'range': [0, 100]}, 'bar': {'color': "#023425"}, 'steps': [{'range': [0, 50], 'color': "#fca5a5"}, {'range': [50, 80], 'color': "#fde047"}, {'range': [80, 100], 'color': "#86efac"}]}
                 ))
                 fig1.update_layout(height=250, margin=dict(l=20, r=20, t=40, b=10))
@@ -1224,9 +1224,9 @@ if menu == t("dashboard", lang):
             with st.container(border=True):
                 st.markdown(f"**{t('carbon_by_scope', lang)}**")
                 fig2 = go.Figure(data=[
-                    go.Bar(name='Scope 1 (Direct)', x=['Scopes'], y=[s1_co2], marker_color='#023425'),
-                    go.Bar(name='Scope 2 (Energy)', x=['Scopes'], y=[s2_co2], marker_color='#416852'),
-                    go.Bar(name='Scope 3 (Value Chain)', x=['Scopes'], y=[s3_co2], marker_color='#86efac')
+                    go.Bar(name=t("scope1_direct", lang), x=['Scopes'], y=[s1_co2], marker_color='#023425'),
+                    go.Bar(name=t("scope2_energy", lang), x=['Scopes'], y=[s2_co2], marker_color='#416852'),
+                    go.Bar(name=t("scope3_value", lang), x=['Scopes'], y=[s3_co2], marker_color='#86efac')
                 ])
                 fig2.update_layout(barmode='stack', height=250, margin=dict(l=20, r=20, t=40, b=10))
                 st.plotly_chart(fig2, use_container_width=True)
@@ -1245,7 +1245,7 @@ if menu == t("dashboard", lang):
 
         st.markdown(f"### {t('data_management', lang)}")
         with st.expander(t("view_manage_data", lang)):
-            st.markdown("Review your submitted records, verify ESRS tags, and remove incorrect entries.")
+            st.markdown(t("review_records_text", lang))
             if 'id' in df.columns:
                 display_df = df[['id', 'esrs_tag', 'fuel_type', 'value_raw', 'co2_kg', 'type', 'description']].copy()
                 display_df.columns = ['ID', 'ESRS Tag', 'Category / Source', 'Value', 'CO2 (kg)', 'Data Type', 'Description']
