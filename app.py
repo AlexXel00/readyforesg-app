@@ -1283,12 +1283,12 @@ elif menu == t("data_entry", lang):
             st.session_state['entry_stage'] = 'company_setup'
 
     if st.session_state['entry_stage'] == 'review_setup':
-        st.header(f"Welcome back! Setting up {st.session_state.get('current_year')}")
-        st.info("We found your company profile from a previous reporting year. Do you want to reuse it, or has your company structure changed?")
+        st.header(t("welcome_back", lang, year=st.session_state.get('current_year')))
+        st.info(t("review_profile_info", lang))
         with st.container(border=True):
-            st.markdown(f"**Current Profile:** {st.session_state.get('company_industry')} | {st.session_state.get('company_size')} | HQ: {st.session_state.get('hq_country')}")
+            st.markdown(f"**{t('current_profile', lang)}** {st.session_state.get('company_industry')} | {st.session_state.get('company_size')} | HQ: {st.session_state.get('hq_country')}")
             c1, c2 = st.columns(2)
-            if c1.button("No changes, use existing profile", type="primary", use_container_width=True):
+            if c1.button(t("use_existing_profile", lang), type="primary", use_container_width=True):
                 import json
                 prof = {"industry": st.session_state.get('company_industry'), "size": st.session_state.get('company_size'), "footprint": st.session_state.get('setup_footprint'), "hq_country": st.session_state.get('hq_country'), "other_countries": st.session_state.get('other_countries'), "description": st.session_state.get('company_description_raw'), "material_topics": st.session_state.get('material_topics')}
                 entry = {"company": st.session_state.get('current_company_id'), "fuel_type": "Profile Data", "value_raw": 0, "co2_kg": 0, "type": "Company Setup", "esrs_tag": "SETUP", "description": json.dumps(prof), "methodology": "System", "date_of_service": f"{st.session_state.get('current_year')}-01-01"}
@@ -1297,34 +1297,55 @@ elif menu == t("data_entry", lang):
                 st.session_state['setup_needs_review'] = False
                 st.session_state['entry_stage'] = 'main'
                 st.rerun()
-            if c2.button("Yes, let me update my profile", use_container_width=True):
+            if c2.button(t("update_profile", lang), use_container_width=True):
                 st.session_state['entry_stage'] = 'company_setup'
                 st.rerun()
 
     elif st.session_state['entry_stage'] == 'company_setup':
-        st.header("Step 1: Company Profile & Materiality Assessment")
-        st.markdown("Describe your business. We use this to determine your material ESG topics and generate the 'Business Model' chapter.")
+        st.header(t("company_setup_header", lang))
+        st.markdown(t("company_setup_desc", lang))
         with st.container(border=True):
             c1, c2, c3 = st.columns(3)
             with c1:
                 ind_opts = ["Services / Office", "IT / Software", "Manufacturing / Production", "Logistics / Transport", "Retail / Wholesale", "Construction / Real Estate", "Agriculture / Food", "Other"]
                 def_ind = st.session_state.get('company_industry', "Services / Office")
-                ind = st.selectbox("Primary Industry", ind_opts, index=ind_opts.index(def_ind) if def_ind in ind_opts else 0)
+                ind_labels = {
+                    "Services / Office": {"en": "Services / Office", "de": "Dienstleistungen / Buero", "fr": "Services / Bureau", "it": "Servizi / Ufficio", "nl": "Diensten / Kantoor", "da": "Tjenester / Kontor", "sv": "Tjanster / Kontor"},
+                    "IT / Software": {"en": "IT / Software", "de": "IT / Software", "fr": "IT / Logiciels", "it": "IT / Software", "nl": "IT / Software", "da": "IT / Software", "sv": "IT / Programvara"},
+                    "Manufacturing / Production": {"en": "Manufacturing / Production", "de": "Fertigung / Produktion", "fr": "Fabrication / Production", "it": "Manifattura / Produzione", "nl": "Productie / Fabricage", "da": "Fremstilling / Produktion", "sv": "Tillverkning / Produktion"},
+                    "Logistics / Transport": {"en": "Logistics / Transport", "de": "Logistik / Transport", "fr": "Logistique / Transport", "it": "Logistica / Trasporto", "nl": "Logistiek / Transport", "da": "Logistik / Transport", "sv": "Logistik / Transport"},
+                    "Retail / Wholesale": {"en": "Retail / Wholesale", "de": "Einzelhandel / Grosshandel", "fr": "Commerce de detail / Gros", "it": "Vendita al dettaglio / All ingrosso", "nl": "Detailhandel / Groothandel", "da": "Detail / Engros", "sv": "Detaljhandel / Grossist"},
+                    "Construction / Real Estate": {"en": "Construction / Real Estate", "de": "Bau / Immobilien", "fr": "Construction / Immobilier", "it": "Costruzione / Immobiliare", "nl": "Bouw / Vastgoed", "da": "Byggeri / Ejendom", "sv": "Byggnation / Fastigheter"},
+                    "Agriculture / Food": {"en": "Agriculture / Food", "de": "Landwirtschaft / Lebensmittel", "fr": "Agriculture / Alimentation", "it": "Agricoltura / Alimentare", "nl": "Landbouw / Voedsel", "da": "Landbrug / Foedevarer", "sv": "Jordbruk / Mat"},
+                    "Other": {"en": "Other", "de": "Sonstiges", "fr": "Autre", "it": "Altro", "nl": "Anders", "da": "Andet", "sv": "Annat"}
+                }
+                ind = st.selectbox(t("primary_industry", lang), ind_opts, index=ind_opts.index(def_ind) if def_ind in ind_opts else 0, format_func=lambda x: ind_labels.get(x, {}).get(lang, x))
             with c2:
                 size_opts = ["Micro (< 10 employees)", "Small (10 - 49 employees)", "Medium (50 - 249 employees)", "Large (250+ employees)"]
                 def_size = st.session_state.get('company_size', "Medium (50 - 249 employees)")
-                size = st.selectbox("Company Size", size_opts, index=size_opts.index(def_size) if def_size in size_opts else 2)
+                size_labels = {
+                    "Micro (< 10 employees)": {"en": "Micro (< 10 employees)", "de": "Kleinstunternehmen (< 10 Mitarbeiter)", "fr": "Micro (< 10 employes)", "it": "Micro (< 10 dipendenti)", "nl": "Micro (< 10 medewerkers)", "da": "Mikro (< 10 ansatte)", "sv": "Mikro (< 10 anstaellda)"},
+                    "Small (10 - 49 employees)": {"en": "Small (10 - 49 employees)", "de": "Klein (10 - 49 Mitarbeiter)", "fr": "Petite (10 - 49 employes)", "it": "Piccola (10 - 49 dipendenti)", "nl": "Klein (10 - 49 medewerkers)", "da": "Lille (10 - 49 ansatte)", "sv": "Litet (10 - 49 anstaellda)"},
+                    "Medium (50 - 249 employees)": {"en": "Medium (50 - 249 employees)", "de": "Mittel (50 - 249 Mitarbeiter)", "fr": "Moyenne (50 - 249 employes)", "it": "Media (50 - 249 dipendenti)", "nl": "Middelgroot (50 - 249 medewerkers)", "da": "Mellem (50 - 249 ansatte)", "sv": "Medelstor (50 - 249 anstaellda)"},
+                    "Large (250+ employees)": {"en": "Large (250+ employees)", "de": "Gross (250+ Mitarbeiter)", "fr": "Grande (250+ employes)", "it": "Grande (250+ dipendenti)", "nl": "Groot (250+ medewerkers)", "da": "Stor (250+ ansatte)", "sv": "Stort (250+ anstaellda)"}
+                }
+                size = st.selectbox(t("company_size_label", lang), size_opts, index=size_opts.index(def_size) if def_size in size_opts else 2, format_func=lambda x: size_labels.get(x, {}).get(lang, x))
             with c3:
                 foot_opts = ["Office / Remote only", "Includes Warehouses / Light Facilities", "Heavy Industry / Factories / Construction Sites"]
                 def_foot = st.session_state.get('setup_footprint', "Office / Remote only")
-                footprint = st.selectbox("Physical Footprint (Operations)", foot_opts, index=foot_opts.index(def_foot) if def_foot in foot_opts else 0)
+                foot_labels = {
+                    "Office / Remote only": {"en": "Office / Remote only", "de": "Buero / Nur Remote", "fr": "Bureau / Teletravail uniquement", "it": "Ufficio / Solo remoto", "nl": "Kantoor / Alleen remote", "da": "Kontor / Kun fjerntjeneste", "sv": "Kontor / Endast distans"},
+                    "Includes Warehouses / Light Facilities": {"en": "Includes Warehouses / Light Facilities", "de": "Inkl. Lagerhallen / Leichte Anlagen", "fr": "Comprend des entrepots", "it": "Include magazzini", "nl": "Inclusief magazijnen", "da": "Inkluderer lagre", "sv": "Inkluderar lager"},
+                    "Heavy Industry / Factories / Construction Sites": {"en": "Heavy Industry / Factories / Construction Sites", "de": "Schwerindustrie / Fabriken / Baustellen", "fr": "Industrie lourde / Usines / Chantiers", "it": "Industria pesante / Fabbriche / Cantieri", "nl": "Zware industrie / Fabrieken / Bouwplaatsen", "da": "Tungaindustri / Fabrikker / Byggepladser", "sv": "Tung industri / Fabriker / Byggplatser"}
+                }
+                footprint = st.selectbox(t("physical_footprint", lang), foot_opts, index=foot_opts.index(def_foot) if def_foot in foot_opts else 0, format_func=lambda x: foot_labels.get(x, {}).get(lang, x))
             st.markdown("---")
-            st.markdown("**Locations & Operations Setup**")
+            st.markdown(f"**{t('locations_setup', lang)}**")
             hq_opts = ["Germany", "Austria", "Switzerland", "France", "Italy", "Spain", "Netherlands", "Belgium", "Sweden", "Denmark", "Poland", "Ireland", "Other EU Member State", "United Kingdom", "USA", "Canada", "Singapore", "Japan", "Hong Kong", "Australia", "Other"]
             def_hq = st.session_state.get('hq_country', "Austria")
-            hq_country = st.selectbox("Headquarters (Main Country)", hq_opts, index=hq_opts.index(def_hq) if def_hq in hq_opts else 1, key="setup_hq")
-            st.markdown("**Secondary Locations / Supply Chain (Optional)**")
-            is_global = st.checkbox("Global / Worldwide Operations", key="setup_global")
+            hq_country = st.selectbox(t("hq_country", lang), hq_opts, index=hq_opts.index(def_hq) if def_hq in hq_opts else 1, key="setup_hq")
+            st.markdown(f"**{t('secondary_locations', lang)}**")
+            is_global = st.checkbox(t("global_operations", lang), key="setup_global")
             regions = {
                 "Europe": ["Germany", "Austria", "Switzerland", "France", "Italy", "Spain", "Netherlands", "Poland", "UK", "Sweden", "Denmark", "Ireland", "Czechia", "Hungary"],
                 "South East Asia": ["Singapore", "Vietnam", "Indonesia", "Malaysia", "Thailand", "Philippines"],
@@ -1336,7 +1357,7 @@ elif menu == t("data_entry", lang):
             }
             other_countries = []
             if is_global:
-                st.caption("All regions are selected by default. Uncheck a region or remove individual countries by clicking the 'x'.")
+                st.caption(t("global_caption", lang))
                 c_reg1, c_reg2 = st.columns(2)
                 for i, (region, countries) in enumerate(regions.items()):
                     col = c_reg1 if i % 2 == 0 else c_reg2
@@ -1345,7 +1366,7 @@ elif menu == t("data_entry", lang):
                             selected = st.multiselect(f"Countries in {region}", options=countries, default=countries, key=f"ms_glob_{region}", label_visibility="collapsed")
                             other_countries.extend(selected)
             else:
-                st.caption("Select specific regions to add their respective countries:")
+                st.caption(t("regions_caption", lang))
                 c_reg1, c_reg2 = st.columns(2)
                 for i, (region, countries) in enumerate(regions.items()):
                     col = c_reg1 if i % 2 == 0 else c_reg2
@@ -1354,9 +1375,9 @@ elif menu == t("data_entry", lang):
                             selected = st.multiselect(f"Countries in {region}", options=countries, default=countries, key=f"ms_{region}", label_visibility="collapsed")
                             other_countries.extend(selected)
             st.markdown("---")
-            desc = st.text_area("Brief Company Description (Value Chain, Products, Services)", value=st.session_state.get('company_description_raw', ''), placeholder="e.g. We are a mid-sized software company developing B2B SaaS solutions...", height=100)
+            desc = st.text_area(t("company_desc_label", lang), value=st.session_state.get('company_description_raw', ''), placeholder=t("company_desc_placeholder", lang), height=100)
             st.markdown("---")
-            st.markdown("**Double Materiality Assessment (Doppelte Wesentlichkeit)**")
+            st.markdown(f"**{t('materiality_title', lang)}**")
             defaults = ["E1: Climate Change (Energy & Fleet)", "S1: Own Workforce", "G1-G3: Governance & Conduct"]
             if ind == "Manufacturing / Production": defaults.extend(["E2: Pollution", "E5: Waste & Circular Economy", "S2: Value Chain Workers"])
             elif ind == "Construction / Real Estate": defaults.extend(["E2: Pollution", "E3: Water", "E4: Biodiversity", "E5: Waste & Circular Economy", "S2: Value Chain Workers"])
@@ -1369,13 +1390,13 @@ elif menu == t("data_entry", lang):
                 if "E5: Waste & Circular Economy" not in defaults: defaults.append("E5: Waste & Circular Economy")
                 if "S3: Affected Communities" not in defaults: defaults.append("S3: Affected Communities")
             defaults = list(dict.fromkeys(defaults))
-            st.info("**Smart Setup:** Based on your Industry and Footprint, we have pre-selected the ESG topics that are highly likely to be material (wesentlich) for your business. You can add or remove topics manually.")
+            st.info(t("smart_setup_info", lang))
             saved_topics = st.session_state.get('material_topics', [])
             active_defaults = saved_topics if len(saved_topics) > 0 else defaults
-            mat_topics = st.multiselect("Material ESG Topics", ["E1: Climate Change (Energy & Fleet)", "E2: Pollution", "E3: Water", "E4: Biodiversity", "E5: Waste & Circular Economy", "S1: Own Workforce", "S2: Value Chain Workers", "S3: Affected Communities", "S4: Consumers", "G1-G3: Governance & Conduct"], default=active_defaults)
-            if st.button("Save Profile & Proceed to Data Entry", type="primary", use_container_width=True):
+            mat_topics = st.multiselect(t("material_topics_label", lang), ["E1: Climate Change (Energy & Fleet)", "E2: Pollution", "E3: Water", "E4: Biodiversity", "E5: Waste & Circular Economy", "S1: Own Workforce", "S2: Value Chain Workers", "S3: Affected Communities", "S4: Consumers", "G1-G3: Governance & Conduct"], default=active_defaults)
+            if st.button(t("save_profile_btn", lang), type="primary", use_container_width=True):
                 if len(desc) < 20:
-                    st.warning("Please provide a meaningful description of your company (at least 20 characters).")
+                    st.warning(t("desc_too_short", lang))
                 else:
                     st.session_state['company_industry'] = ind
                     st.session_state['company_size'] = size
