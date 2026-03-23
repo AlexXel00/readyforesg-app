@@ -34,6 +34,15 @@ TRANSLATIONS = {
         "da": "Dit ekspertværktøj til forenklet ESG-rapportering.",
         "sv": "Ditt expertverktyg för förenklad ESG-rapportering."
     },
+    "app_description": {
+        "en": "This software is designed to help you generate your **Environment, Social, and Governance (ESG)** report with ease and precision.",
+        "de": "Diese Software hilft Ihnen, Ihren **Umwelt-, Sozial- und Governance (ESG)**-Bericht einfach und präzise zu erstellen.",
+        "fr": "Ce logiciel est conçu pour vous aider à générer votre rapport **Environnement, Social et Gouvernance (ESG)**.",
+        "it": "Questo software è progettato per aiutarti a generare il tuo rapporto **Ambiente, Sociale e Governance (ESG)**.",
+        "nl": "Deze software is ontworpen om u te helpen uw **Milieu, Sociaal en Governance (ESG)**-rapport te genereren.",
+        "da": "Denne software er designet til at hjælpe dig med at generere din **Miljø, Social og Governance (ESG)**-rapport.",
+        "sv": "Denna programvara är utformad för att hjälpa dig att generera din **Miljö, Social och Styrning (ESG)**-rapport."
+    },
     "login": {
         "en": "Login",
         "de": "Anmelden",
