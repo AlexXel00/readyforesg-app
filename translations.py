@@ -1056,6 +1056,33 @@ TRANSLATIONS = {
         "da": "Valgfri (Ikke-materielt emne)\n\nDette modul er ikke markeret som meget relevant. Du kan springe det over.",
         "sv": "Valfritt (Icke-materiellt ämne)\n\nDenna modul har inte markerats som mycket relevant. Du kan hoppa över den."
     },
+"measured_vs_estimates": {
+        "en": "% Measured Data vs. Estimates", "de": "% Gemessene Daten vs. Schätzungen",
+        "fr": "% Données mesurées vs. Estimations", "it": "% Dati misurati vs. Stime",
+        "nl": "% Gemeten data vs. Schattingen", "da": "% Målte data vs. Estimater", "sv": "% Uppmätt data vs. Uppskattningar"
+    },
+"scope1_direct": {
+        "en": "Scope 1 (Direct)", "de": "Scope 1 (Direkt)", "fr": "Scope 1 (Direct)",
+        "it": "Scope 1 (Diretto)", "nl": "Scope 1 (Direct)", "da": "Scope 1 (Direkte)", "sv": "Scope 1 (Direkt)"
+    },
+"scope2_energy": {
+        "en": "Scope 2 (Energy)", "de": "Scope 2 (Energie)", "fr": "Scope 2 (Énergie)",
+        "it": "Scope 2 (Energia)", "nl": "Scope 2 (Energie)", "da": "Scope 2 (Energi)", "sv": "Scope 2 (Energi)"
+    },
+"scope3_value": {
+        "en": "Scope 3 (Value Chain)", "de": "Scope 3 (Lieferkette)", "fr": "Scope 3 (Chaîne de valeur)",
+        "it": "Scope 3 (Catena del valore)", "nl": "Scope 3 (Waardeketen)", "da": "Scope 3 (Værdikæde)", "sv": "Scope 3 (Värdekedja)"
+    },
+"review_records_text": {
+        "en": "Review your submitted records, verify ESRS tags, and remove incorrect entries.",
+        "de": "Überprüfen Sie Ihre eingereichten Datensätze, verifizieren Sie ESRS-Tags und entfernen Sie fehlerhafte Einträge.",
+        "fr": "Examinez vos enregistrements soumis, vérifiez les balises ESRS et supprimez les entrées incorrectes.",
+        "it": "Esamina i record inviati, verifica i tag ESRS e rimuovi le voci errate.",
+        "nl": "Controleer uw ingediende records, verifieer ESRS-tags en verwijder onjuiste vermeldingen.",
+        "da": "Gennemse dine indsendte poster, verificer ESRS-tags og fjern forkerte indgange.",
+        "sv": "Granska dina inlämnade poster, verifiera ESRS-taggar och ta bort felaktiga poster."
+    },
+    
 }
 
 
