@@ -1154,10 +1154,7 @@ if not company_name:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("# Ready for ESG")
     st.markdown(f"### {t('app_subtitle', lang)}")
-    st.markdown(f"""
-    This software is designed to help you generate your **Environment, Social, and Governance (ESG)** report
-    with ease and precision.
-    """)
+    st.markdown(t("app_description", lang))
     c1, c2 = st.columns(2)
     with c1:
         st.container(border=True).markdown(f"**{t('expert_verification', lang)}** {t('expert_verification_text', lang)}", unsafe_allow_html=True)
