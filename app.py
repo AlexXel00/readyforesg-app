@@ -953,8 +953,50 @@ def generate_audit_pdf(company, year, report_text, df, country="Austria", gauge_
     if isinstance(output, (bytes, bytearray)):
         return bytes(output)
     return output.encode('latin-1')
+def render_password_reset_page():
+    st.markdown("# Ready for ESG")
+    st.markdown("### Set a new password")
+    st.markdown("---")
 
+    access_token = st.query_params.get("access_token")
+    refresh_token = st.query_params.get("refresh_token")
+
+    if not access_token or not refresh_token:
+        st.error("Reset link is incomplete or expired.")
+        st.stop()
+
+    try:
+        supabase.auth.set_session(access_token, refresh_token)
+    except Exception as e:
+        st.error(f"This reset link is invalid or expired: {e}")
+        st.stop()
+
+    with st.form("set_new_password_form"):
+        new_password = st.text_input("New password", type="password")
+        confirm_password = st.text_input("Confirm new password", type="password")
+        submitted = st.form_submit_button("Update password", use_container_width=True)
+
+        if submitted:
+            if len(new_password) < 6:
+                st.error("Password must be at least 6 characters.")
+            elif new_password != confirm_password:
+                st.error("Passwords do not match.")
+            else:
+                try:
+                    supabase.auth.update_user({"password": new_password})
+                    st.session_state["password_reset_success"] = True
+                    st.query_params.clear()
+                    st.rerun()
+                except Exception as e:
+                    st.error(f"Could not update password: {e}")    
+    
 # --- LOGIN PAGE ---
+mode = st.query_params.get("mode")
+
+if mode == "reset":
+    render_password_reset_page()
+    st.stop()
+    
 if 'user' not in st.session_state:
     lang_name_login = st.selectbox("Language", list(LANGUAGES.keys()), index=0, key="login_lang")
     lang = LANGUAGES[lang_name_login]
@@ -962,6 +1004,11 @@ if 'user' not in st.session_state:
     st.markdown("# Ready for ESG")
     st.markdown(f"### {t('app_subtitle', lang)}")
     st.markdown("---")
+    
+    if st.session_state.get("password_reset_success"):
+        st.success("Password updated successfully. You can now log in.")
+        del st.session_state["password_reset_success"]
+    
     tab_login, tab_register = st.tabs([t("login", lang), t("register", lang)])
     with tab_login:
         with st.form("login_form"):
