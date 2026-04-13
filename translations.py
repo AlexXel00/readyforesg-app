@@ -151,144 +151,51 @@ TRANSLATIONS = {
         "da": "Konto oprettet! Tjek venligst din e-mail for at bekræfte.",
         "sv": "Konto skapat! Kontrollera din e-post för bekräftelse."
     },
-
-    # --- SIDEBAR ---
-    "logout": {
-        "en": "Logout",
-        "de": "Abmelden",
-        "fr": "Déconnexion",
-        "it": "Disconnetti",
-        "nl": "Uitloggen",
-        "da": "Log ud",
-        "sv": "Logga ut"
+    "forgot_password": {
+        "en": "Forgot password?",
+        "de": "Passwort vergessen?",
+        "fr": "Mot de passe oublié ?",
+        "it": "Password dimenticata?",
+        "nl": "Wachtwoord vergeten?",
+        "da": "Glemt adgangskode?",
+        "sv": "Glömt lösenord?"
     },
-    "client_mandate": {
-        "en": "Client Mandate",
-        "de": "Auftrag",
-        "fr": "Mandat client",
-        "it": "Mandato cliente",
-        "nl": "Cliëntmandaat",
-        "da": "Klientmandat",
-        "sv": "Klientuppdrag"
+    "forgot_password_help": {
+        "en": "Enter your email and we will send you a password reset link.",
+        "de": "Gib deine E-Mail ein und wir senden dir einen Link zum Zurücksetzen des Passworts.",
+        "fr": "Entrez votre e-mail et nous vous enverrons un lien de réinitialisation.",
+        "it": "Inserisci la tua e-mail e ti invieremo un link per reimpostare la password.",
+        "nl": "Voer uw e-mailadres in en wij sturen u een resetlink.",
+        "da": "Indtast din e-mail, så sender vi et link til nulstilling af adgangskoden.",
+        "sv": "Ange din e-postadress så skickar vi en länk för att återställa lösenordet."
     },
-    "start_here": {
-        "en": "Start Here",
-        "de": "Hier beginnen",
-        "fr": "Commencer ici",
-        "it": "Inizia qui",
-        "nl": "Begin hier",
-        "da": "Start her",
-        "sv": "Börja här"
+    "send_reset_link": {
+        "en": "Send reset link",
+        "de": "Reset-Link senden",
+        "fr": "Envoyer le lien",
+        "it": "Invia link di reset",
+        "nl": "Resetlink verzenden",
+        "da": "Send nulstillingslink",
+        "sv": "Skicka återställningslänk"
     },
-    "company_name_id": {
-        "en": "Company Name / ID",
-        "de": "Unternehmensname / ID",
-        "fr": "Nom de l'entreprise / ID",
-        "it": "Nome azienda / ID",
-        "nl": "Bedrijfsnaam / ID",
-        "da": "Virksomhedsnavn / ID",
-        "sv": "Företagsnamn / ID"
+    "enter_email_for_reset": {
+        "en": "Please enter your email address.",
+        "de": "Bitte gib deine E-Mail-Adresse ein.",
+        "fr": "Veuillez saisir votre adresse e-mail.",
+        "it": "Inserisci il tuo indirizzo e-mail.",
+        "nl": "Voer uw e-mailadres in.",
+        "da": "Indtast din e-mailadresse.",
+        "sv": "Ange din e-postadress."
     },
-    "enter_name": {
-        "en": "Enter Name...",
-        "de": "Name eingeben...",
-        "fr": "Entrer le nom...",
-        "it": "Inserire il nome...",
-        "nl": "Naam invoeren...",
-        "da": "Indtast navn...",
-        "sv": "Ange namn..."
+    "reset_link_sent": {
+        "en": "If this email exists, a password reset link has been sent.",
+        "de": "Falls diese E-Mail existiert, wurde ein Reset-Link gesendet.",
+        "fr": "Si cet e-mail existe, un lien de réinitialisation a été envoyé.",
+        "it": "Se questa e-mail esiste, è stato inviato un link per reimpostare la password.",
+        "nl": "Als dit e-mailadres bestaat, is er een resetlink verzonden.",
+        "da": "Hvis denne e-mail findes, er der sendt et nulstillingslink.",
+        "sv": "Om denna e-postadress finns har en återställningslänk skickats."
     },
-    "reporting_year": {
-        "en": "Reporting Year",
-        "de": "Berichtsjahr",
-        "fr": "Année de reporting",
-        "it": "Anno di rendicontazione",
-        "nl": "Rapportagejaar",
-        "da": "Rapporteringsår",
-        "sv": "Rapporteringsår"
-    },
-    "year_warning": {
-        "en": "Warning: You are reporting for {year}, the current year is {current}.",
-        "de": "Achtung: Sie berichten für {year}, das aktuelle Jahr ist {current}.",
-        "fr": "Attention: Vous signalez pour {year}, l'année en cours est {current}.",
-        "it": "Attenzione: Si sta segnalando per {year}, l'anno corrente è {current}.",
-        "nl": "Waarschuwing: U rapporteert voor {year}, het huidige jaar is {current}.",
-        "da": "Advarsel: Du rapporterer for {year}, det aktuelle år er {current}.",
-        "sv": "Varning: Du rapporterar för {year}, innevarande år är {current}."
-    },
-    "main_menu": {
-        "en": "Main Menu",
-        "de": "Hauptmenü",
-        "fr": "Menu principal",
-        "it": "Menu principale",
-        "nl": "Hoofdmenu",
-        "da": "Hovedmenu",
-        "sv": "Huvudmeny"
-    },
-    "dashboard": {
-        "en": "Dashboard",
-        "de": "Dashboard",
-        "fr": "Tableau de bord",
-        "it": "Dashboard",
-        "nl": "Dashboard",
-        "da": "Dashboard",
-        "sv": "Dashboard"
-    },
-    "data_entry": {
-        "en": "Data Entry Center",
-        "de": "Dateneingabe",
-        "fr": "Centre de saisie",
-        "it": "Centro inserimento dati",
-        "nl": "Gegevensinvoer",
-        "da": "Dataindtastning",
-        "sv": "Datainmatning"
-    },
-    "document_portal": {
-        "en": "Document Portal",
-        "de": "Dokumentenportal",
-        "fr": "Portail documentaire",
-        "it": "Portale documenti",
-        "nl": "Documentenportaal",
-        "da": "Dokumentportal",
-        "sv": "Dokumentportal"
-    },
-    "reports": {
-        "en": "Reports",
-        "de": "Berichte",
-        "fr": "Rapports",
-        "it": "Rapporti",
-        "nl": "Rapporten",
-        "da": "Rapporter",
-        "sv": "Rapporter"
-    },
-    "settings": {
-        "en": "Settings",
-        "de": "Einstellungen",
-        "fr": "Paramètres",
-        "it": "Impostazioni",
-        "nl": "Instellingen",
-        "da": "Indstillinger",
-        "sv": "Inställningar"
-    },
-    "reset_wizard": {
-        "en": "Reset Wizard",
-        "de": "Assistent zurücksetzen",
-        "fr": "Réinitialiser l'assistant",
-        "it": "Reimposta procedura guidata",
-        "nl": "Wizard resetten",
-        "da": "Nulstil guide",
-        "sv": "Återställ guide"
-    },
-    "language": {
-        "en": "Language",
-        "de": "Sprache",
-        "fr": "Langue",
-        "it": "Lingua",
-        "nl": "Taal",
-        "da": "Sprog",
-        "sv": "Språk"
-    },
-
     # --- SUBSCRIPTION ---
     "access_inactive": {
         "en": "Your access is not yet active.",
