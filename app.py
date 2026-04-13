@@ -964,41 +964,41 @@ if 'user' not in st.session_state:
     st.markdown("---")
     tab_login, tab_register = st.tabs([t("login", lang), t("register", lang)])
     with tab_login:
-    with st.form("login_form"):
-        st.markdown(f"**{t('login_to_account', lang)}**")
-        email = st.text_input(t("email", lang))
-        password = st.text_input(t("password", lang), type="password")
-        submitted = st.form_submit_button(
-            t("login", lang),
-            type="primary",
-            use_container_width=True
-        )
-
-        if submitted:
-            result = login(email, password)
-            if result == "success":
-                st.rerun()
-            elif result == "mfa_required":
-                st.session_state['show_mfa'] = True
-                st.rerun()
-
-    st.markdown("")
-
-    with st.form("forgot_password_form"):
-        st.markdown(f"**{t('forgot_password', lang)}**")
-        st.caption(t("forgot_password_help", lang))
-        reset_email = st.text_input(t("email", lang), key="reset_email")
-        reset_submitted = st.form_submit_button(
-            t("send_reset_link", lang),
-            use_container_width=True
-        )
-
-        if reset_submitted:
-            if not reset_email:
-                st.error(t("enter_email_for_reset", lang))
-            else:
-                if send_password_reset(reset_email):
-                    st.success(t("reset_link_sent", lang))
+        with st.form("login_form"):
+            st.markdown(f"**{t('login_to_account', lang)}**")
+            email = st.text_input(t("email", lang))
+            password = st.text_input(t("password", lang), type="password")
+            submitted = st.form_submit_button(
+                t("login", lang),
+                type="primary",
+                use_container_width=True
+            )
+    
+            if submitted:
+                result = login(email, password)
+                if result == "success":
+                    st.rerun()
+                elif result == "mfa_required":
+                    st.session_state['show_mfa'] = True
+                    st.rerun()
+    
+        st.markdown("")
+    
+        with st.form("forgot_password_form"):
+            st.markdown(f"**{t('forgot_password', lang)}**")
+            st.caption(t("forgot_password_help", lang))
+            reset_email = st.text_input(t("email", lang), key="reset_email")
+            reset_submitted = st.form_submit_button(
+                t("send_reset_link", lang),
+                use_container_width=True
+            )
+    
+            if reset_submitted:
+                if not reset_email:
+                    st.error(t("enter_email_for_reset", lang))
+                else:
+                    if send_password_reset(reset_email):
+                        st.success(t("reset_link_sent", lang))
 
     if st.session_state.get('show_mfa'):
         with st.form("mfa_form"):
