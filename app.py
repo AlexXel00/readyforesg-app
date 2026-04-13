@@ -160,7 +160,7 @@ def send_password_reset(email):
         supabase.auth.reset_password_for_email(
             email,
             {
-                "redirect_to": "https://readyforesg.streamlit.app/?mode=reset"
+                "redirect_to": "https://readyforesg.com/reset.html"
             }
         )
         return True
