@@ -953,7 +953,7 @@ def generate_audit_pdf(company, year, report_text, df, country="Austria", gauge_
     if isinstance(output, (bytes, bytearray)):
         return bytes(output)
     return output.encode('latin-1')
- def render_password_reset_page():
+def render_password_reset_page():
     st.markdown("# Ready for ESG")
     st.markdown("### Set a new password")
     st.markdown("---")
@@ -1004,8 +1004,7 @@ def generate_audit_pdf(company, year, report_text, df, country="Austria", gauge_
                     st.query_params.clear()
                     st.rerun()
                 except Exception as e:
-                    st.error(f"Could not update password: {e}")   
-    
+                    st.error(f"Could not update password: {e}")
 # --- LOGIN PAGE ---
 mode = st.query_params.get("mode")
 
