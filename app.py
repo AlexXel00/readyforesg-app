@@ -953,23 +953,34 @@ def generate_audit_pdf(company, year, report_text, df, country="Austria", gauge_
     if isinstance(output, (bytes, bytearray)):
         return bytes(output)
     return output.encode('latin-1')
-def render_password_reset_page():
+ def render_password_reset_page():
     st.markdown("# Ready for ESG")
     st.markdown("### Set a new password")
     st.markdown("---")
 
-    access_token = st.query_params.get("access_token")
-    refresh_token = st.query_params.get("refresh_token")
+    token_hash = st.query_params.get("token_hash")
+    email = st.query_params.get("email")
+    reset_type = st.query_params.get("type")
 
-    if not access_token or not refresh_token:
+    if not token_hash or not email or reset_type != "recovery":
         st.error("Reset link is incomplete or expired.")
         st.stop()
 
-    try:
-        supabase.auth.set_session(access_token, refresh_token)
-    except Exception as e:
-        st.error(f"This reset link is invalid or expired: {e}")
-        st.stop()
+    verified_key = f"{email}:{token_hash}"
+
+    if st.session_state.get("password_reset_verified_key") != verified_key:
+        try:
+            supabase.auth.verify_otp(
+                {
+                    "email": email,
+                    "token_hash": token_hash,
+                    "type": "recovery",
+                }
+            )
+            st.session_state["password_reset_verified_key"] = verified_key
+        except Exception as e:
+            st.error(f"This reset link is invalid or expired: {e}")
+            st.stop()
 
     with st.form("set_new_password_form"):
         new_password = st.text_input("New password", type="password")
@@ -984,11 +995,16 @@ def render_password_reset_page():
             else:
                 try:
                     supabase.auth.update_user({"password": new_password})
+                    supabase.auth.sign_out()
                     st.session_state["password_reset_success"] = True
+
+                    if "password_reset_verified_key" in st.session_state:
+                        del st.session_state["password_reset_verified_key"]
+
                     st.query_params.clear()
                     st.rerun()
                 except Exception as e:
-                    st.error(f"Could not update password: {e}")    
+                    st.error(f"Could not update password: {e}")   
     
 # --- LOGIN PAGE ---
 mode = st.query_params.get("mode")
